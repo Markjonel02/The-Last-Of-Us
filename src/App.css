@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "HeadlinerNo45";
+  src: url("/HeadlinerNo.45 DEMO.ttf") format("truetype");
+
+}
+
+*
+{
+    font-family: "HeadlinerNo45", sans-serif;
+    
+}
