@@ -23,6 +23,7 @@ import {
 import { AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiMenu } from "react-icons/fi";
 import blood from "../assets/img/blood.png";
+
 // Create Scroll Context
 const ScrollContext = createContext();
 
@@ -65,10 +66,6 @@ const NavBar = () => {
       className="navs"
       zIndex="100"
       justifyContent="space-between"
-      /* transition="background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out"
-      bg={isScrolling ? "rgba(0, 0, 0, 0.2)" : "transparent"}
-      backdropFilter={isScrolling ? "blur(1px)" : "none"}
-      boxShadow={isScrolling ? "0 4px 10px rgba(0, 0, 0, 0.1)" : "none"} */
       transition="background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out"
       bg={isScrolling ? "rgba(0, 0, 0, 0.2)" : "transparent"}
       backdropFilter={isScrolling ? "blur(10px)" : "none"}

@@ -1,7 +1,35 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Image } from "@chakra-ui/react";
 import trees from "../assets/img/trees.jpg";
+import bloodhand from "../assets/img/Horror hand.png";
+import { useEffect, useState } from "react";
 
 const Story = () => {
+  const [angle, setAngle] = useState(0);
+  const [bloodHandPosition, setBloodHandPosition] = useState({
+    x: "50%",
+    y: "50%",
+    angle: 0,
+  });
+
+  useEffect(() => {
+    const angleInterval = setInterval(() => {
+      setAngle(Math.random() * 360);
+    }, 1000);
+
+    const bloodHandInterval = setInterval(() => {
+      setBloodHandPosition({
+        x: `${Math.random() * 80 + 10}%`, // Random position between 10% and 90%
+        y: `${Math.random() * 80 + 10}%`,
+        angle: Math.random() * 360,
+      });
+    }, 3000);
+
+    return () => {
+      clearInterval(angleInterval);
+      clearInterval(bloodHandInterval);
+    };
+  }, []);
+
   return (
     <Flex
       h="100vh"
@@ -25,10 +53,23 @@ const Story = () => {
         position="absolute"
         width="100%"
         height="100%"
-        bg="rgba(0, 0, 0, 0.5)" // Darken only background
+        bg="rgba(0, 0, 0, 0.5)"
         top={0}
         left={0}
         zIndex={1}
+      />
+
+      {/* Blood Hand Image */}
+      <Image
+        src={bloodhand}
+        position="absolute"
+        width="200px"
+        height="auto"
+        top={bloodHandPosition.y}
+        left={bloodHandPosition.x}
+        transform={`rotate(${bloodHandPosition.angle}deg)`}
+        transition="all 0.5s ease-in-out"
+        zIndex={2}
       />
 
       {/* Content */}
