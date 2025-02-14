@@ -1,65 +1,80 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import bloodhand from "../assets/img/Horror hand.png";
+import trees from "../assets/img/trees.jpg";
 
 const Story = () => {
   return (
-    <>
-      <Flex
-        h="100vh"
-        w="full"
-        p="4"
-        top={5}
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
-        textAlign="center"
-        sx={{
-          backgroundImage: `url(${bloodhand})`,
+    <Flex
+      h="100vh"
+      w="full"
+      p="4"
+      alignItems="center"
+      justifyContent="center"
+      flexDirection="column"
+      textAlign="center"
+      position="relative"
+      sx={{
+        backgroundImage: `url(${trees})`,
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Dark Overlay */}
+      <Box
+        position="absolute"
+        width="100%"
+        height="100%"
+        bg="rgba(0, 0, 0, 0.5)" // Darken only background
+        top={0}
+        left={0}
+        zIndex={1}
+      />
 
-          backgroundPosition: "left",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <Box>
-          <Text
-            fontSize={["2em", "4em", "5em"]}
-            fontWeight="bold"
-            color="#1c1a19ff"
-          >
-            Story
-          </Text>
-        </Box>
-
-        <Box
-          mt={4}
-          p={4}
-          bg="gray.800"
-          opacity={0.8}
-          borderRadius="md"
-          w={["90%", "80%", "60%"]}
+      {/* Content */}
+      <Box position="relative" zIndex={2}>
+        <Text
+          fontSize={["2em", "4em", "5em"]}
+          fontWeight="bold"
+          color="#f2f2f2"
+          letterSpacing={1}
         >
-          <Text
-            fontSize={["md", "lg", "xl"]}
-            letterSpacing={2}
-            color="whiteAlpha.900"
-          >
-            The Last of Us is set in a post apocalyptic world where a fungal
-            infection has devastated humanity, turning people into monstrous
-            creatures. The story follows Joel, a hardened survivor who is tasked
-            with smuggling a young girl named Ellie across the United States.
-            Ellie is believed to be the key to finding a cure for the infection
-            because she is immune. Throughout their journey, Joel and Ellie face
-            numerous challenges and dangers, including hostile humans and
-            infected creatures. As they travel together, they form a deep bond,
-            and Joel begins to see Ellie as a surrogate daughter. The story is
-            emotional and gripping, exploring themes of survival, trust, and the
-            lengths people will go to protect their loved ones. The game has
-            received critical acclaim for its storytelling, character
-            development, and immersive gameplay.
-          </Text>
-        </Box>
-      </Flex>
-    </>
+          Story
+        </Text>
+      </Box>
+
+      <Box
+        mt={4}
+        p={4}
+        opacity={0.8}
+        borderRadius="md"
+        w={["90%", "80%", "60%"]}
+        position="relative"
+        zIndex={2}
+      >
+        <Text
+          fontSize={["md", "lg", "xl"]}
+          letterSpacing={2}
+          color="whiteAlpha.900"
+        >
+          <Text as="span" backgroundColor="#FECE61" p={2} borderRadius={2}>
+            The Last of Us
+          </Text>{" "}
+          is set in a post apocalyptic world where a fungal infection has
+          devastated humanity, turning people into monstrous creatures. The
+          story follows Joel, a hardened survivor who is tasked with smuggling a
+          young girl named Ellie across the United States. Ellie is believed to
+          be the key to finding a cure for the infection because she is immune.
+          Throughout their journey, Joel and Ellie face numerous challenges and
+          dangers, including hostile humans and infected creatures. As they
+          travel together, they form a deep bond, and Joel begins to see Ellie
+          as a surrogate daughter. The story is emotional and gripping,
+          exploring themes of survival, trust, and the lengths people will go to
+          protect their loved ones. The game has received critical acclaim for
+          its storytelling, character development, and immersive gameplay.
+        </Text>
+      </Box>
+    </Flex>
   );
 };
 
