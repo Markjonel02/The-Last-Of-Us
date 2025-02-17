@@ -1,28 +1,41 @@
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 import trees from "../assets/img/trees.jpg";
 import bloodhand from "../assets/img/Horror hand.png";
 import { useEffect, useState } from "react";
+import bloodstain from "../assets/img/bloodstain.png";
 
 const Story = () => {
   const [angle, setAngle] = useState(0);
   const [bloodHandPosition, setBloodHandPosition] = useState({
-    x: "50%",
-    y: "50%",
+    x: "50px",
+    y: "50px",
     angle: 0,
   });
-
+  const zIndexValue = useBreakpointValue({ base: 3, md: 10 });
   useEffect(() => {
+    const imageSize = 200; // Assuming the blood hand image is 200px wide/tall
+
+    const updateBloodHandPosition = () => {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      const maxX = viewportWidth - imageSize;
+      const maxY = viewportHeight - imageSize;
+
+      setBloodHandPosition({
+        x: `${Math.random() * maxX}px`,
+        y: `${Math.random() * maxY}px`,
+        angle: Math.random() * 360,
+      });
+    };
+
     const angleInterval = setInterval(() => {
       setAngle(Math.random() * 360);
     }, 1000);
 
-    const bloodHandInterval = setInterval(() => {
-      setBloodHandPosition({
-        x: `${Math.random() * 80 + 10}%`, // Random position between 10% and 90%
-        y: `${Math.random() * 80 + 10}%`,
-        angle: Math.random() * 360,
-      });
-    }, 3000);
+    const bloodHandInterval = setInterval(updateBloodHandPosition, 3000);
+
+    updateBloodHandPosition(); // Set initial position
 
     return () => {
       clearInterval(angleInterval);
@@ -72,12 +85,21 @@ const Story = () => {
         zIndex={2}
       />
 
+      <Image
+        src={bloodstain}
+        width="500px"
+        height="auto"
+        position="absolute"
+        zIndex={zIndexValue}
+        opacity={{ base: 0.6, md: 0.7 }}
+      />
       {/* Content */}
       <Box position="relative" zIndex={2}>
         <Text
           fontSize={["2em", "4em", "5em"]}
           fontWeight="bold"
           color="#f2f2f2"
+          marginTop={10}
           letterSpacing={1}
         >
           Story
@@ -101,18 +123,12 @@ const Story = () => {
           <Text as="span" backgroundColor="#FECE61" p={2} borderRadius={2}>
             The Last of Us
           </Text>{" "}
-          is set in a post apocalyptic world where a fungal infection has
-          devastated humanity, turning people into monstrous creatures. The
-          story follows Joel, a hardened survivor who is tasked with smuggling a
-          young girl named Ellie across the United States. Ellie is believed to
-          be the key to finding a cure for the infection because she is immune.
-          Throughout their journey, Joel and Ellie face numerous challenges and
-          dangers, including hostile humans and infected creatures. As they
-          travel together, they form a deep bond, and Joel begins to see Ellie
-          as a surrogate daughter. The story is emotional and gripping,
-          exploring themes of survival, trust, and the lengths people will go to
-          protect their loved ones. The game has received critical acclaim for
-          its storytelling, character development, and immersive gameplay.
+          is set in a post apocalyptic world where a fungal infection turns
+          people into monstrous creatures. Joel, a survivor, must smuggle Ellie,
+          a girl immune to the infection, across the U.S. They face many dangers
+          and form a deep bond, with Joel seeing Ellie as a daughter. The story
+          explores survival, trust, and protection and is acclaimed for its
+          storytelling and character development.
         </Text>
       </Box>
     </Flex>
