@@ -3,6 +3,7 @@ import Story from "./components/Story";
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
 import Map from "./components/Map";
+import Chapters from "./components/Chapters";
 const App = () => {
   return (
     <div>
@@ -10,7 +11,7 @@ const App = () => {
       <MainComponent>
         <Home />
         <Story />
-        <Map />
+        <Map /> <Chapters />
       </MainComponent>
     </div>
   );

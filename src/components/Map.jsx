@@ -16,7 +16,7 @@ const Map = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
-          backgroundColor: "rgba(154, 154, 154, 0.6)",
+          backgroundColor: "rgba(249, 248, 248, 0.6)",
           boxShadow: "0 0 20px rgba(200, 200, 200, 0.5)",
         }}
       >
