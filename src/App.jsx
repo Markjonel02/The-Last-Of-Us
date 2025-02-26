@@ -4,16 +4,17 @@ import Home from "./components/Home";
 import Navigation from "./components/Navigation";
 import Map from "./components/Map";
 import Chapters from "./components/Chapters";
+import { Box } from "@chakra-ui/react";
 const App = () => {
   return (
-    <div>
+    <Box>
       <Navigation />
       <MainComponent>
         <Home />
         <Story />
         <Map /> <Chapters />
       </MainComponent>
-    </div>
+    </Box>
   );
 };
 
