@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { last_of_us } from "../components/utils/Data";
 import {
   Box,
@@ -126,4 +126,4 @@ const Chapters = () => {
   );
 };
 
-export default Chapters;
+export default memo(Chapters);

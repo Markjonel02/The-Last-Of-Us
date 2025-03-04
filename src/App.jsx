@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import Map from "./components/Map";
 import Chapters from "./components/Chapters";
 import { Box } from "@chakra-ui/react";
+import { memo } from "react";
 const App = () => {
   return (
     <Box>
@@ -18,4 +19,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default memo(App);
