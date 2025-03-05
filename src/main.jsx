@@ -5,6 +5,8 @@ import App from "./App.jsx";
 import { extendTheme } from "@chakra-ui/react";
 import themes from "./theme.jsx";
 import "./App.css";
+import "swiper/css";
+import "swiper/css/navigation";
 const theme = extendTheme({ themes });
 createRoot(document.getElementById("root")).render(
   <StrictMode>

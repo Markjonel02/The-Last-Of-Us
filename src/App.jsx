@@ -6,14 +6,28 @@ import Map from "./components/Map";
 import Chapters from "./components/Chapters";
 import { Box } from "@chakra-ui/react";
 import { memo } from "react";
+import Characters from "./components/Characters";
 const App = () => {
   return (
     <Box>
       <Navigation />
       <MainComponent>
-        <Home />
-        <Story />
-        <Map /> <Chapters />
+        <Box height="auto">
+          <Home />
+        </Box>
+
+        <Box height="auto">
+          <Story />
+        </Box>
+        <Box height="auto">
+          <Map />
+        </Box>
+        <Box height="auto">
+          <Chapters />
+        </Box>
+        <Box height="auto">
+          <Characters />
+        </Box>
       </MainComponent>
     </Box>
   );

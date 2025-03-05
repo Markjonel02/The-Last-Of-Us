@@ -14,7 +14,7 @@ import {
   Flex,
   useDisclosure,
 } from "@chakra-ui/react";
-import bg from "../assets/img/white-concrete-wall-background-vintage-style-graphic-design-wallpaper_226189-2962.jpg";
+import bg from "../assets/img/grunge wall.png";
 
 const Chapters = () => {
   const mainComponentStyle = {
@@ -23,7 +23,6 @@ const Chapters = () => {
     backgroundPosition: "fixed",
     backgroundRepeat: "no-repeat",
     width: "100%",
-    height: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -47,7 +46,7 @@ const Chapters = () => {
 
         <Grid
           templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
-          gap={6}
+          gap={{ base: 10, md: 4, sm: 5 }}
         >
           {last_of_us.map((chapter, index) => (
             <Box
@@ -57,8 +56,11 @@ const Chapters = () => {
               borderRadius="md"
               overflow="hidden"
               boxShadow="md"
-              position="relative" // Ensure it respects the z-index
+              position="relative"
               _hover={{ transform: "scale(1.05)", transition: "0.3s" }}
+              bg={"white"}
+              width="80%"
+              margin="0 auto"
             >
               <Image
                 src={chapter.place}
@@ -67,14 +69,14 @@ const Chapters = () => {
                 h="200px"
                 objectFit="cover"
                 borderRadius="md"
-                zIndex={2} // Ensure it's above the background images
+                zIndex={2}
               />
               <Text
                 textAlign="center"
                 fontWeight="bold"
                 p={2}
                 letterSpacing="1px"
-                zIndex={2} // Ensure it's above the background images
+                zIndex={2}
               >
                 <Text as="h1" fontSize={{ base: "1.3em" }}>
                   {chapter.name}

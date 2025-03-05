@@ -22,10 +22,15 @@ const Map = () => {
       >
         <Box>
           <Text fontSize="5em" color="blackAlpha.800">
-            MAPS{" "}
+            MAPS
           </Text>
         </Box>
-        <Image src={Maps} width="800px" height={"auto"} alt="Last of us map" />
+        <Image
+          src={Maps}
+          width="800px"
+          height={{ base: "400px" }}
+          alt="Last of us map"
+        />
       </Flex>
     </>
   );
