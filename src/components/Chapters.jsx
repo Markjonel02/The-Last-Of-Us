@@ -22,6 +22,7 @@ const Chapters = () => {
     backgroundSize: "cover",
     backgroundPosition: "fixed",
     backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
     width: "100%",
     display: "flex",
     justifyContent: "center",

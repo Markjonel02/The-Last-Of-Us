@@ -1,8 +1,9 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box, Text, Flex } from "@chakra-ui/react";
-import { Navigation } from "swiper/modules";
-import bg from "../assets/img/grunge characters.png"; // Ensure the path to the image is correct
+import { Navigation, Pagination } from "swiper/modules";
+
+import bg from "../assets/img/grunge border.png";
 
 const Characters = () => {
   return (
@@ -10,18 +11,19 @@ const Characters = () => {
       justify="center"
       align="center"
       w="100%"
+      height="100vh"
       padding={5}
-      h="100vh"
       backgroundImage={`url(${bg})`}
       backgroundPosition="fixed"
-      position={"fixed"}
+      backgroundSize="cover" // Add this property
+      backgroundRepeat="no-repeat"
       alignItems="center"
     >
       <Swiper
         spaceBetween={50}
         slidesPerView={2.8}
         onSlideChange={() => console.log("slide change")}
-        modules={[Navigation]} // Ensure Navigation is used correctly
+        modules={[Navigation, Pagination]} // Ensure Navigation is used correctly
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
@@ -30,6 +32,7 @@ const Characters = () => {
             display="flex"
             alignItems="center"
             justifyContent="center"
+            borderRadius={12}
           >
             <Text color="white">Sample 1</Text>
           </Box>
