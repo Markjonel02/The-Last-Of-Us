@@ -7,6 +7,7 @@ import Chapters from "./components/Chapters";
 import { Box } from "@chakra-ui/react";
 import { memo } from "react";
 import Characters from "./components/Characters";
+
 const App = () => {
   return (
     <Box>
