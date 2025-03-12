@@ -27,31 +27,31 @@ export const Infected = [
   Infecties(
     2,
     stalker,
-    "Runners",
+    "Stalker",
     "The infected are humans who have been infected by the Cordyceps brain infection and subsequently mutated into horrific new forms. The resulting creatures are aggressive, and will attack any uninfected human and animals on sight.[2]The infected are one of the main enemy types in The Last of Us, Left Behind, and The Last of Us Part II, the other being non-infected human enemies."
   ),
   Infecties(
     3,
     clicker,
-    "Runners",
+    "Clicker",
     "The infected are humans who have been infected by the Cordyceps brain infection and subsequently mutated into horrific new forms. The resulting creatures are aggressive, and will attack any uninfected human and animals on sight.[2]The infected are one of the main enemy types in The Last of Us, Left Behind, and The Last of Us Part II, the other being non-infected human enemies."
   ),
   Infecties(
     4,
     shamblers,
-    "Runners",
+    "Shamblers",
     "The infected are humans who have been infected by the Cordyceps brain infection and subsequently mutated into horrific new forms. The resulting creatures are aggressive, and will attack any uninfected human and animals on sight.[2]The infected are one of the main enemy types in The Last of Us, Left Behind, and The Last of Us Part II, the other being non-infected human enemies."
   ),
   Infecties(
     5,
     bloaters,
-    "Runners",
+    "Bloaters",
     "The infected are humans who have been infected by the Cordyceps brain infection and subsequently mutated into horrific new forms. The resulting creatures are aggressive, and will attack any uninfected human and animals on sight.[2]The infected are one of the main enemy types in The Last of Us, Left Behind, and The Last of Us Part II, the other being non-infected human enemies."
   ),
   Infecties(
     6,
     ratking,
-    "Runners",
+    "Ratking",
     "The infected are humans who have been infected by the Cordyceps brain infection and subsequently mutated into horrific new forms. The resulting creatures are aggressive, and will attack any uninfected human and animals on sight.[2]The infected are one of the main enemy types in The Last of Us, Left Behind, and The Last of Us Part II, the other being non-infected human enemies."
   ),
 ];
