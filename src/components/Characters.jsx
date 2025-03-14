@@ -22,25 +22,19 @@ const Characters = () => {
       <Box
         w="40%"
         borderRadius={12}
-        textAlign="center"
         color="white"
         display="flex"
         flexDirection="column"
-        bg="rgba(0, 0, 0, 0.5)"
         top={0}
         mr={4}
       >
-        <Text fontSize="4xl" mb={4}>
+        <Text fontSize="5xl" mb={4} color={"blackAlpha.900"}>
           Characters
         </Text>
       </Box>
 
       {/* Right Side - Swiper */}
-      <Box
-        w={{ base: "100%", md: "40%" }}
-        display="flex"
-        justifyContent="center"
-      >
+      <Box w="50%" display="flex" justifyContent="center">
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
@@ -59,8 +53,8 @@ const Characters = () => {
                 p={4}
                 textAlign="center"
                 color="white"
-                width={{ base: 600, md: 450 }}
-                height={{ base: 600, md: 700 }}
+                w={400}
+                h={600}
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
@@ -76,6 +70,9 @@ const Characters = () => {
                   width="100%"
                   height="100%"
                   zIndex={1}
+                  position="absolute"
+                  top={0}
+                  left={0}
                   borderRadius={8}
                 />
                 {/* Reflection Effect */}
