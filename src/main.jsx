@@ -8,6 +8,7 @@ import "./App.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 const theme = extendTheme({ themes });
 createRoot(document.getElementById("root")).render(
   <StrictMode>

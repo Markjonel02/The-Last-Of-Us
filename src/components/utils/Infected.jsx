@@ -1,6 +1,6 @@
 import runner from "../../assets/img/Characters_img/Infected/The-Last-Of-Us-Background-Isolated-PNG.png";
-import stalker from "../../assets/img/Characters_img/Infected/stalker.jpg";
-import clicker from "../../assets/img/Characters_img/Infected/Clicker.jpg";
+import stalker from "../../assets/img/Characters_img/Infected/stalker.png";
+import clicker from "../../assets/img/Characters_img/Infected/Clicker.png";
 import shamblers from "../../assets/img/Characters_img/Infected/shamblers.png";
 import bloaters from "../../assets/img/Characters_img/Infected/Bloater.png";
 import ratking from "../../assets/img/Characters_img/Infected/rat king.png";

@@ -16,8 +16,8 @@ const Map = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
-          backgroundColor: "rgba(249, 248, 248, 0.6)",
-          boxShadow: "0 0 20px rgba(200, 200, 200, 0.5)",
+          backgroundColor: "rgba(10, 10, 10, 0.6)",
+          boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)",
         }}
       >
         <Box>
