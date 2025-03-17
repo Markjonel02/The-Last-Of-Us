@@ -28,9 +28,17 @@ const Characters = () => {
         top={0}
         mr={4}
       >
-        <Text fontSize="5xl" mb={4} color={"blackAlpha.900"}>
+        <Text
+          as="h1"
+          fontSize="7xl"
+          mb={4}
+          fontWeight={900}
+          letterSpacing={3}
+          color={"blackAlpha.900"}
+        >
           Characters
         </Text>
+        <Box className="Tab"></Box>
       </Box>
 
       {/* Right Side - Swiper */}
@@ -50,7 +58,6 @@ const Characters = () => {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Box
-                p={4}
                 textAlign="center"
                 color="white"
                 w={400}
@@ -83,7 +90,6 @@ const Characters = () => {
                   width="100%"
                   height="100%"
                   transform="scaleY(1)"
-                  translateX="scale(1)"
                   opacity={0.3}
                   position="absolute"
                   bottom="-50%"

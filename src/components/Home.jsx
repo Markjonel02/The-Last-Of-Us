@@ -20,7 +20,6 @@ const Home = () => {
           letterSpacing="4px"
           fontWeight={900}
           fontSize={["1em", "2em", "5em", "11em"]} // Responsive font size
-          opacity={0.8}
         >
           THE LAST OF US
         </Text>

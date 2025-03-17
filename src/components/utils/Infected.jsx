@@ -1,13 +1,14 @@
-import runner from "../../assets/img/Characters_img/Infected/The-Last-Of-Us-Background-Isolated-PNG.png";
-import stalker from "../../assets/img/Characters_img/Infected/stalker.png";
+import runner2 from "../../assets/img/Characters_img/Infected/Runners (1).png";
+import stalker from "../../assets/img/Characters_img/Infected/Stalker (2).png";
 import clicker from "../../assets/img/Characters_img/Infected/Clicker.png";
 import shamblers from "../../assets/img/Characters_img/Infected/shamblers.png";
-import bloaters from "../../assets/img/Characters_img/Infected/Bloater.png";
-import ratking from "../../assets/img/Characters_img/Infected/rat king.png";
+import bloaters from "../../assets/img/Characters_img/Infected/Bloater (2).png";
+import ratking from "../../assets/img/Characters_img/Infected/rat king (2).png";
 
 const Infecties = (id, image, name, desc) => ({
   id,
   image,
+
   Infectedname: name,
   desc,
   History: {
@@ -20,7 +21,7 @@ const Infecties = (id, image, name, desc) => ({
 export const Infected = [
   Infecties(
     1,
-    runner,
+    runner2,
     "Runners",
     "The infected are humans who have been infected by the Cordyceps brain infection and subsequently mutated into horrific new forms. The resulting creatures are aggressive, and will attack any uninfected human and animals on sight.[2]The infected are one of the main enemy types in The Last of Us, Left Behind, and The Last of Us Part II, the other being non-infected human enemies."
   ),
