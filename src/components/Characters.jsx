@@ -1,48 +1,170 @@
-import React from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Box, Text, Flex, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Flex,
+  Image,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from "@chakra-ui/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Infected } from "./utils/Infected";
+import { MainCharacters } from "./utils/MainCharacters";
 import bg from "../assets/img/grunge border.png";
 import "swiper/css/navigation";
+
 const Characters = () => {
+  const datasource = {
+    // Fixed key to match handleChangeTab function
+    infecters: Infected,
+    mc: MainCharacters,
+  };
+
+  const [selectedTab, setSelectedTab] = useState("infecters");
+  const [selectedCharacter, setSelectedCharacter] = useState(
+    datasource["infecters"][0]
+  );
+
+  const handleChangeTab = (tabKey) => {
+    setSelectedTab(tabKey);
+    setSelectedCharacter(datasource[tabKey][0]); // Ensure correct dataset is selected
+  };
+
   return (
     <Flex
       justify="center"
       align="center"
-      h="100vh"
+      h={{ base: "ful", md: "100%" }}
       p={5}
-      backgroundImage={`url(${bg})`}
-      backgroundPosition="fixed"
-      backgroundSize="cover"
-      backgroundRepeat="no-repeat"
+      position={"relative"}
       direction={{ base: "column", md: "row", sm: "column" }}
+      backgroundColor={"#0f0f0fff"}
     >
+      <Box
+        backgroundImage={`url(${bg})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        width="100%"
+        height="100%"
+        position="absolute"
+        left={0}
+        zIndex={0} // Ensures it's the bottom-most layer
+        filter="invert(1)"
+      />
       {/* Left Container */}
       <Box
-        w="40%"
+        w={{ base: "100%", md: "40%" }}
         borderRadius={12}
         color="white"
         display="flex"
         flexDirection="column"
         top={0}
-        mr={4}
       >
         <Text
           as="h1"
-          fontSize="7xl"
+          fontSize={{ base: "5xl", md: "5xl", sm: "5xl", xl: "7xl" }} // Fixed font size for mobile
           mb={4}
           fontWeight={900}
           letterSpacing={3}
-          color={"blackAlpha.900"}
+          zIndex={1}
         >
-          Characters
+          Character
         </Text>
-        <Box className="Tab"></Box>
+        <Box className="Tab">
+          <Tabs variant="unstyled" maxW="md" isFitted defaultIndex={0}>
+            <TabList>
+              <Tab
+                border="2px solid white"
+                color="white"
+                _selected={{
+                  bg: "black",
+                  color: "white",
+                }}
+                _hover={{
+                  bg: "white",
+                  color: "black",
+                }}
+                padding="10px 20px"
+                onClick={() => handleChangeTab("infecters")}
+              >
+                INFECTERS
+              </Tab>
+              <Tab
+                border="2px solid white"
+                color="white"
+                _selected={{
+                  bg: "white",
+                  color: "black",
+                }}
+                _hover={{
+                  bg: "white",
+                  color: "black",
+                }}
+                padding="10px 20px"
+                onClick={() => handleChangeTab("mc")}
+              >
+                MAIN CHARACTERS
+              </Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+                {/* Display actual character details instead of just text */}
+                {selectedTab === "infecters" && selectedCharacter && (
+                  <Box>
+                    <Text fontSize="3xl" fontWeight="500" letterSpacing={3}>
+                      {selectedCharacter.Infectedname}
+                    </Text>
+                    <Text
+                      mt={2}
+                      fontSize="sm"
+                      fontWeight={400}
+                      letterSpacing={3}
+                      noOfLines={{ base: 3, md: null }} // Limit on mobile, full text on desktop
+                    >
+                      {(
+                        selectedCharacter.desc || "No description available"
+                      ).substring(0, 300)}
+                    </Text>
+                  </Box>
+                )}
+              </TabPanel>
+              <TabPanel>
+                {/* Display actual character details instead of just text */}
+                {selectedTab === "mc" && selectedCharacter && (
+                  <Box>
+                    <Text fontSize="2xl" fontWeight="bold">
+                      {selectedCharacter.charname}
+                    </Text>
+                    <Text
+                      mt={2}
+                      fontSize="sm"
+                      fontWeight={400}
+                      letterSpacing={3}
+                      noOfLines={{ base: 3, md: null }} // Limit on mobile, full text on desktop
+                    >
+                      {(
+                        selectedCharacter.desc || "No description available"
+                      ).substring(0, 300)}
+                    </Text>
+                  </Box>
+                )}
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+        </Box>
       </Box>
 
       {/* Right Side - Swiper */}
-      <Box w="50%" display="flex" justifyContent="center">
+      <Box
+        w={{ base: "500px", md: "50%", sm: "400px" }}
+        h={{ base: "600px", md: "auto" }}
+        display="flex"
+      >
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
@@ -51,16 +173,22 @@ const Characters = () => {
           modules={[Navigation, Autoplay]}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           style={{ display: "flex", justifyContent: "center" }}
+          onSlideChange={(swiper) => {
+            // Added onSlideChange handler to update selected character
+            const newIndex = swiper.realIndex;
+            setSelectedCharacter(datasource[selectedTab][newIndex]);
+          }}
         >
-          {Infected.map((infected) => (
+          {datasource[selectedTab].map((char, index) => (
             <SwiperSlide
-              key={infected.id}
+              key={char.id || index} // Added fallback for key
+              onClick={() => setSelectedCharacter(char)}
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Box
                 textAlign="center"
                 color="white"
-                w={400}
+                w={{ base: "100%", md: 400 }}
                 h={600}
                 display="flex"
                 flexDirection="column"
@@ -71,9 +199,9 @@ const Characters = () => {
                 borderRadius={8}
               >
                 <Image
-                  src={infected.image}
-                  alt={infected.Infectedname}
-                  objectFit="cover"
+                  src={char.image}
+                  alt={char.charname}
+                  objectFit={{ base: "cover", md: "100%" }}
                   width="100%"
                   height="100%"
                   zIndex={1}
@@ -82,34 +210,39 @@ const Characters = () => {
                   left={0}
                   borderRadius={8}
                 />
-                {/* Reflection Effect */}
+                {/*               Reflection Effect */}
                 <Image
-                  src={infected.image}
-                  alt={`${infected.Infectedname} Reflection`}
+                  src={char.image}
+                  alt={`${char.Infectedname} Reflection`}
                   objectFit="contain"
                   width="100%"
                   height="100%"
-                  transform="scaleY(1)"
-                  opacity={0.3}
+                  opacity={0.6}
                   position="absolute"
                   bottom="-50%"
-                  left={10}
+                  left={55}
+                  transform="scaleX(-1)"
                   zIndex={0}
                   top={0}
-                />{" "}
+                />
               </Box>
               <Box
                 position="absolute"
-                bottom={2}
+                bottom={0}
                 left={0}
                 right={0}
                 textAlign="center"
-                bg="rgba(0, 0, 0, 0.2)"
+                bg="blackAlpha.200" // Darkened background for better text visibility
                 p={2}
                 borderRadius={8}
               >
-                <Text fontSize="xl" color="white" letterSpacing={2} zIndex={12}>
-                  {infected.Infectedname}
+                <Text
+                  fontSize="3xl"
+                  color="white"
+                  letterSpacing={2}
+                  zIndex={12}
+                >
+                  {char.charname || char.Infectedname}
                 </Text>
               </Box>
             </SwiperSlide>

@@ -1,38 +1,59 @@
 import React from "react";
-import Maps from "../assets/img/Map.jpg";
+import Maps from "../assets/img/PineTools.com_Map.png";
 import { Box, Image, Text, Flex } from "@chakra-ui/react";
-import grunge from "../assets/img/4-grunge-rectangale-frame-4.png";
+import grunge from "../assets/img/grunge border.png";
+
 const Map = () => {
   return (
-    <>
-      <Flex
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="Column"
-        width="full"
-        height="100vh"
-        sx={{
-          backgroundImage: `url(${grunge})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "100% 100%",
-          backgroundColor: "rgba(10, 10, 10, 0.6)",
-          boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)",
-        }}
-      >
-        <Box>
-          <Text fontSize="5em" color="blackAlpha.800">
-            MAPS
-          </Text>
-        </Box>
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      w="100%"
+      h="100vh"
+      backgroundColor={"#0f0f0fff"}
+      position="relative" // Necessary for stacking layers
+    >
+      {/* Background layer */}
+      <Box
+        backgroundImage={`url(${grunge})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        width="100%"
+        height="100%"
+        position="absolute"
+        left={0}
+        top={2}
+        zIndex={0} // Ensures it's the bottom-most layer
+        filter="invert(1)"
+      />
+
+      {/* Floating "MAPS" title */}
+      <Box zIndex={1} mb={6}>
+        <Text
+          fontSize="8xl"
+          letterSpacing={6}
+          color="white"
+          fontWeight="bold"
+          textAlign="center"
+        >
+          MAPS
+        </Text>
+      </Box>
+
+      {/* Floating map image */}
+      <Box zIndex={1} borderRadius="lg" padding="10px">
         <Image
           src={Maps}
           width="800px"
-          height={{ base: "400px" }}
-          alt="Last of us map"
+          height={{ base: "400px", sm: "300px" }}
+          alt="Last of Us Map"
+          borderRadius="md"
+          filter="invert(1)"
         />
-      </Flex>
-    </>
+      </Box>
+    </Flex>
   );
 };
 

@@ -14,15 +14,9 @@ import {
   Flex,
   useDisclosure,
 } from "@chakra-ui/react";
-import bg from "../assets/img/grunge wall.png";
-
+import grunge from "../assets/img/grunge border.png";
 const Chapters = () => {
   const mainComponentStyle = {
-    backgroundImage: `url(${bg})`,
-    backgroundSize: "cover",
-    backgroundPosition: "fixed",
-    backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
     width: "100%",
     display: "flex",
     justifyContent: "center",
@@ -39,15 +33,31 @@ const Chapters = () => {
   };
 
   return (
-    <Flex style={mainComponentStyle}>
+    <Flex
+      style={{
+        ...mainComponentStyle, // Using the pre-defined style for consistency
+      }}
+    >
+      <Box
+        backgroundImage={`url(${grunge})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        position="absolute" // Ensures it stays as a background
+        width="100%" // Cover the whole Flex container
+        height="100%" // Ensures full division coverage
+        zIndex={0} // Background stays behind other elements
+        filter="invert(1)"
+      ></Box>
+
       <Box p={5} position="relative" zIndex={2}>
-        <Text fontSize="5em" color="blackAlpha.800" textAlign="center">
+        <Text fontSize="5em" color="white" textAlign="center">
           CHAPTERS
         </Text>
 
         <Grid
           templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
-          gap={{ base: 10, md: 4, sm: 5 }}
+          gap={{ base: 10, md: 6, sm: 5 }}
         >
           {last_of_us.map((chapter, index) => (
             <Box
@@ -59,7 +69,7 @@ const Chapters = () => {
               boxShadow="md"
               position="relative"
               _hover={{ transform: "scale(1.05)", transition: "0.3s" }}
-              bg={"white"}
+              bg="white"
               width="80%"
               margin="0 auto"
             >
@@ -70,14 +80,12 @@ const Chapters = () => {
                 h="200px"
                 objectFit="cover"
                 borderRadius="md"
-                zIndex={2}
               />
               <Text
                 textAlign="center"
                 fontWeight="bold"
                 p={2}
                 letterSpacing="1px"
-                zIndex={2}
               >
                 <Text as="h1" fontSize={{ base: "1.3em" }}>
                   {chapter.name}

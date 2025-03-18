@@ -1,7 +1,7 @@
 import ellie1 from "../../assets/img/Characters_img/ellie williams (1).jpg";
 import ellie2 from "../../assets/img/Characters_img/Ellie Williams.jpg";
 
-export const characters = [
+export const MainCharacters = [
   {
     id: 1,
     name: "Ellie Williams",

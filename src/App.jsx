@@ -13,22 +13,11 @@ const App = () => {
     <Box>
       <Navigation />
       <MainComponent>
-        <Box height="auto">
-          <Home />
-        </Box>
-
-        <Box height="auto">
-          <Story />
-        </Box>
-        <Box height="auto">
-          <Map />
-        </Box>
-        <Box height="auto">
-          <Chapters />
-        </Box>
-        <Box height="auto">
-          <Characters />
-        </Box>
+        <Home />
+        <Story />
+        <Map />
+        <Chapters />
+        <Characters />
       </MainComponent>
     </Box>
   );
