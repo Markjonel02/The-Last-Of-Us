@@ -16,6 +16,9 @@ import rifle from "../../assets/img/Weapons_img/rifle.png";
 import shorty from "../../assets/img/Weapons_img/shorty.png";
 
 /* weapons melee  */
+import nail from "../../assets/img/Weapons_img/Bomb/nailbomb.png";
+import molotov from "../../assets/img/Weapons_img/Bomb/molotov.jpg";
+import trapmine from "../../assets/img/Weapons_img/Bomb/trapmine.png";
 
 const Infecties = (id, image, name, weaknessweapon) => ({
   id,
@@ -41,16 +44,19 @@ export const Infected = [
     { name: "revolver", image: revolver },
     { name: "rifle", image: rifle },
     { name: "shorty", image: shorty },
+    { name: "trapmine", image: trapmine },
+    { name: "nail", image: nail },
+    { name: "molotov", image: molotov },
   ]),
   Infecties(2, stalker, "Stalker", [
     { name: "pistol9mm", image: pistol9mm },
     { name: "bow", image: bow },
     { name: "eldiado", image: eldiado },
-    { name: "flamethrower", image: flamethrower },
-    { name: "shotgunpump", image: shotgunpump },
     { name: "revolver", image: revolver },
     { name: "rifle", image: rifle },
     { name: "shorty", image: shorty },
+    { name: "trapmine", image: trapmine },
+    { name: "molotov", image: molotov },
   ]),
   Infecties(3, clicker, "Clicker", [
     { name: "pistol9mm", image: pistol9mm },
@@ -61,8 +67,31 @@ export const Infected = [
     { name: "revolver", image: revolver },
     { name: "rifle", image: rifle },
     { name: "shorty", image: shorty },
+    { name: "molotov", image: molotov },
+    { name: "trapmine", image: trapmine },
   ]),
-  Infecties(4, shamblers, "Shamblers", [{ name }]),
-  Infecties(5, bloaters, "Bloaters", [{ name }]),
-  Infecties(6, ratking, "Ratking", [{ name }]),
+  Infecties(4, shamblers, "Shamblers", [
+    { name: "shotgunpump", image: shotgunpump },
+    { name: "flamethrower", image: flamethrower },
+    { name: "rifle", image: rifle },
+    { name: "rifle", image: rifle },
+    { name: "eldiado", image: eldiado },
+    { name: "trapmine", image: trapmine },
+  ]),
+  Infecties(5, bloaters, "Bloaters", [
+    { name: "molotov", image: molotov },
+    { name: "flamethrower", image: flamethrower },
+    { name: "rifle", image: rifle },
+    { name: "eldiado", image: eldiado },
+    { name: "shotgunpump", image: shotgunpump },
+    { name: "trapmine", image: trapmine },
+  ]),
+  Infecties(6, ratking, "Ratking", [
+    { name: "molotov", image: molotov },
+    { name: "flamethrower", image: flamethrower },
+    { name: "rifle", image: rifle },
+    { name: "eldiado", image: eldiado },
+    { name: "shotgunpump", image: shotgunpump },
+    { name: "trapmine", image: trapmine },
+  ]),
 ];

@@ -10,14 +10,20 @@ import {
   TabPanels,
   Tab,
   TabPanel,
+  Grid,
+  Tooltip,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Infected } from "./utils/Infected";
 import { MainCharacters } from "./utils/MainCharacters";
 import bg from "../assets/img/grunge border.png";
 import "swiper/css/navigation";
+import { motion } from "framer-motion";
 
+const MotionImage = motion(Image);
 const Characters = () => {
+  const [hoveredWeapon, setHoveredWeapon] = useState(null);
   const datasource = {
     // Fixed key to match handleChangeTab function
     infecters: Infected,
@@ -33,7 +39,7 @@ const Characters = () => {
     setSelectedTab(tabKey);
     setSelectedCharacter(datasource[tabKey][0]); // Ensure correct dataset is selected
   };
-
+  const maxLength = useBreakpointValue({ base: 300, md: 300, xl: 0 });
   return (
     <Flex
       justify="center"
@@ -124,12 +130,75 @@ const Characters = () => {
                       fontSize="sm"
                       fontWeight={400}
                       letterSpacing={3}
-                      noOfLines={{ base: 3, md: null }} // Limit on mobile, full text on desktop
+                      noOfLines={{ base: 2, md: 3, xl: 6 }} // Limit on mobile, full text on desktop
                     >
                       {(
                         selectedCharacter.desc || "No description available"
                       ).substring(0, 300)}
                     </Text>
+                    <Box as="div" mt={4}>
+                      <Text
+                        fontSize="xl"
+                        fontWeight="300"
+                        mb={2}
+                        letterSpacing={1}
+                      >
+                        Weapon Weaknesses:
+                      </Text>
+
+                      <Grid
+                        templateColumns="repeat(auto-fit, minmax(20px, 1fr))"
+                        gap={3}
+                      >
+                        {selectedCharacter.weaknessweapon.map(
+                          (weapon, index) => (
+                            <Box
+                              key={index}
+                              position="relative"
+                              display="inline-block"
+                            >
+                              {/* Overlay for non-hovered images */}
+                              {hoveredWeapon !== null &&
+                                hoveredWeapon !== index && (
+                                  <Box
+                                    position="absolute"
+                                    top={0}
+                                    left={0}
+                                    w="100%"
+                                    h="100%"
+                                    bg="blackAlpha.500"
+                                    borderRadius="md"
+                                    zIndex={1}
+                                    pointerEvents="none" // Prevents blocking interaction
+                                  />
+                                )}
+                              <Tooltip
+                                letterSpacing={2}
+                                fontWeight={400}
+                                label={weapon.name}
+                                aria-label="Image Tooltip"
+                              >
+                                <MotionImage
+                                  src={weapon.image}
+                                  alt={weapon.name}
+                                  borderRadius="md"
+                                  objectFit="cover"
+                                  w="30px"
+                                  h="30px"
+                                  mb={2}
+                                  whileHover={{ scale: 1.5 }} // Magnifies the image on hover
+                                  transition={{ duration: 0.2 }} // Smooth transition effect
+                                  onMouseEnter={() => setHoveredWeapon(index)}
+                                  onMouseLeave={() => setHoveredWeapon(null)}
+                                  position="relative"
+                                  zIndex={2}
+                                />
+                              </Tooltip>
+                            </Box>
+                          )
+                        )}
+                      </Grid>
+                    </Box>
                   </Box>
                 )}
               </TabPanel>
@@ -137,18 +206,18 @@ const Characters = () => {
                 {/* Display actual character details instead of just text */}
                 {selectedTab === "mc" && selectedCharacter && (
                   <Box>
-                    <Text fontSize="2xl" fontWeight="bold">
-                      {selectedCharacter.charname}
+                    <Text fontSize="3xl" fontWeight="500" letterSpacing={3}>
+                      {selectedCharacter.name}
                     </Text>
                     <Text
                       mt={2}
                       fontSize="sm"
                       fontWeight={400}
                       letterSpacing={3}
-                      noOfLines={{ base: 3, md: null }} // Limit on mobile, full text on desktop
+                      noOfLines={{ base: 2, md: 3, xl: 9 }}
                     >
                       {(
-                        selectedCharacter.desc || "No description available"
+                        selectedCharacter.bio || "No description available"
                       ).substring(0, 300)}
                     </Text>
                   </Box>
@@ -209,6 +278,7 @@ const Characters = () => {
                   top={0}
                   left={0}
                   borderRadius={8}
+                  filter="drop-shadow(0 10px 6px rgba(153, 149, 149, 0.25))"
                 />
                 {/*               Reflection Effect */}
                 <Image
@@ -217,7 +287,7 @@ const Characters = () => {
                   objectFit="contain"
                   width="100%"
                   height="100%"
-                  opacity={0.6}
+                  opacity={0.4}
                   position="absolute"
                   bottom="-50%"
                   left={55}
@@ -242,7 +312,7 @@ const Characters = () => {
                   letterSpacing={2}
                   zIndex={12}
                 >
-                  {char.charname || char.Infectedname}
+                  {char.Infectedname || char.name}
                 </Text>
               </Box>
             </SwiperSlide>

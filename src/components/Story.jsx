@@ -53,6 +53,7 @@ const Story = () => {
       flexDirection="column"
       textAlign="center"
       position="relative"
+      blur={1}
       sx={{
         backgroundImage: `url(${trees})`,
         backgroundSize: "cover",
