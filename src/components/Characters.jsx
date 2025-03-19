@@ -12,7 +12,6 @@ import {
   TabPanel,
   Grid,
   Tooltip,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Infected } from "./utils/Infected";
@@ -39,7 +38,7 @@ const Characters = () => {
     setSelectedTab(tabKey);
     setSelectedCharacter(datasource[tabKey][0]); // Ensure correct dataset is selected
   };
-  const maxLength = useBreakpointValue({ base: 300, md: 300, xl: 0 });
+
   return (
     <Flex
       justify="center"
@@ -312,7 +311,7 @@ const Characters = () => {
                   letterSpacing={2}
                   zIndex={12}
                 >
-                  {char.Infectedname || char.name}
+                  {char.name || char.Infectedname}
                 </Text>
               </Box>
             </SwiperSlide>

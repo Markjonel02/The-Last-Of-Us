@@ -68,7 +68,7 @@ export const MainCharacters = [
     name: "Joel Miler",
     image: joel,
     alt: "joel miler",
-    bio: "Joel Miller is the playable protagonist of The Last of Us Part I, a supporting character in The Last of Us: Left Behind and The Last of Us Part II, the latter of which he is briefly playable in, and a playable character in the No Return mode. Joel was a survivor in post-apocalyptic America that had been ravaged by the Cordyceps brain infection. After losing his only daughter Sarah in the early stages of the outbreak, Joel became a ruthless and cynical smuggler eventually tasked with smuggling and protecting Ellie Williams, a young girl who was the key to mankind's survival.[7] Joel eventually formed a strong bond with her.[8]",
+    bio: "Joel Miller is the playable protagonist of The Last of Us Part I, a supporting character in The Last of Us: Left Behind and The Last of Us Part II, the latter of which he is briefly playable in, and a playable character in the No Return mode. Joel was a survivor in post apocalyptic America that had been ravaged by the Cordyceps brain infection. After losing his only daughter Sarah in the early stages of the outbreak, Joel became a ruthless and cynical smuggler eventually tasked with smuggling and protecting Ellie Williams, a young girl who was the key to mankind's survival.[7] Joel eventually formed a strong bond with her.[8]",
     Biographical: {
       other_names: ["Texas (by Tess)", "Old timer (by Henry)"],
       birthdate: "September 26, 1981",
