@@ -56,7 +56,7 @@ const Chapters = () => {
         </Text>
 
         <Grid
-          templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
+          templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
           gap={{ base: 10, md: 6, sm: 5 }}
         >
           {last_of_us.map((chapter, index) => (

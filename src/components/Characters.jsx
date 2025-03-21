@@ -12,6 +12,7 @@ import {
   TabPanel,
   Grid,
   Tooltip,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Infected } from "./utils/Infected";
@@ -22,6 +23,11 @@ import { motion } from "framer-motion";
 
 const MotionImage = motion(Image);
 const Characters = () => {
+  const textLength = useBreakpointValue({
+    base: 300,
+    md: null,
+    xl: 999999999999,
+  });
   const [hoveredWeapon, setHoveredWeapon] = useState(null);
   const datasource = {
     // Fixed key to match handleChangeTab function
@@ -131,9 +137,8 @@ const Characters = () => {
                       letterSpacing={3}
                       noOfLines={{ base: 2, md: 3, xl: 6 }} // Limit on mobile, full text on desktop
                     >
-                      {(
-                        selectedCharacter.desc || "No description available"
-                      ).substring(0, 300)}
+                      {selectedCharacter.desc?.substring(0, textLength) ||
+                        "No description available"}
                     </Text>
                     <Box as="div" mt={4}>
                       <Text

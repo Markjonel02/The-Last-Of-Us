@@ -7,13 +7,15 @@ import Chapters from "./components/Chapters";
 import { Box } from "@chakra-ui/react";
 import { memo } from "react";
 import Characters from "./components/Characters";
-
+import Pricing from "./components/Pricing";
+import Overview from "./components/Overview";
 const App = () => {
   return (
     <Box>
       <Navigation />
       <MainComponent>
         <Home />
+        <Overview />
         <Story />
         <Map />
         <Chapters />

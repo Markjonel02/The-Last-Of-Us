@@ -70,6 +70,7 @@ const Home = () => {
           style={{ width: "100%", height: "auto" }}
         ></video>
       </Box>
+      
     </>
   );
 };
