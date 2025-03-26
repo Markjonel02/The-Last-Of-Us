@@ -44,3 +44,8 @@ html {
   position: relative;
   transition: filter 0.3s ease;
 }
+
+.tab-item:focus {
+  outline: none; /* Removes the default browser focus outline */
+  box-shadow: none; /* Removes any default focus shadow */
+}

@@ -1,11 +1,11 @@
+// Tlous2.jsx
 import React from "react";
+import { Box, Text, Image } from "@chakra-ui/react";
 import { tabData } from "../utils/Tabdata";
-import { Box, Image, Text } from "@chakra-ui/react";
-
-const Tlous1 = () => {
-  const firstTab = tabData[0];
+const Tlous2 = () => {
+  const firstTab = tabData[1];
   return (
-    <Box >
+    <Box>
       {/* The Image */}
       <Image
         src={firstTab.banner}
@@ -43,4 +43,4 @@ const Tlous1 = () => {
   );
 };
 
-export default Tlous1;
+export default Tlous2;

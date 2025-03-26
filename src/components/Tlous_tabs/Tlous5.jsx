@@ -1,11 +1,10 @@
 import React from "react";
 import { tabData } from "../utils/Tabdata";
 import { Box, Image, Text } from "@chakra-ui/react";
-
-const Tlous1 = () => {
-  const firstTab = tabData[0];
+const Tlous5 = () => {
+  const firstTab = tabData[1];
   return (
-    <Box >
+    <Box>
       {/* The Image */}
       <Image
         src={firstTab.banner}
@@ -43,4 +42,4 @@ const Tlous1 = () => {
   );
 };
 
-export default Tlous1;
+export default Tlous5;
