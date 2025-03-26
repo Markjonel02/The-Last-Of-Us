@@ -14,8 +14,8 @@ const App = () => {
     <Box>
       <Navigation />
       <MainComponent>
-        <Home />
         <Overview />
+
         <Story />
         <Map />
         <Chapters />

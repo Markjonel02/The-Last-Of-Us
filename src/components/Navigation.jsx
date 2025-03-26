@@ -67,7 +67,7 @@ const NavBar = () => {
       zIndex="100"
       justifyContent="space-between"
       transition="background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out"
-      bg={isScrolling ? "rgba(0, 0, 0, 0.2)" : "transparent"}
+      bg={isScrolling ? "rgba(54, 54, 54, 0.2)" : "transparent"}
       backdropFilter={isScrolling ? "blur(10px)" : "none"}
       boxShadow={isScrolling ? "0 4px 10px rgba(0, 0, 0, 0.1)" : "none"}
       sx={{
@@ -75,6 +75,7 @@ const NavBar = () => {
         backgroundPosition: "bottom",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
+        zIndex: 99,
       }}
     >
       {/* Logo */}

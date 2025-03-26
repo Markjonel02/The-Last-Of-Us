@@ -7,6 +7,7 @@
 *
 {
     font-family: "HeadlinerNo45", sans-serif;
+    font-weight:normal;
     
 }
 body {
@@ -15,4 +16,31 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.custom-swiper {
+  position: relative;
+}
 
+.swiper-slide {
+  position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-10px);
+  z-index: 10;
+}
+
+/* Black overlay for non-hovered slides, excluding active */
+.swiper-slide:not(:hover):not(.active) .tab-item {
+  filter: brightness(0.5);
+}
+
+/* Ensure the active slide doesn't have the overlay */
+.swiper-slide.active .tab-item {
+  filter: none;
+}
+
+.tab-item {
+  position: relative;
+  transition: filter 0.3s ease;
+}
