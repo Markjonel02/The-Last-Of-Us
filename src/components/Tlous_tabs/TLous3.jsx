@@ -1,45 +1,73 @@
 import React from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, Button } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { tabData } from "../utils/Tabdata";
-const TLous3 = () => {
+
+const MotionBox = motion(Box);
+
+const Tlous3 = ({ isActive }) => {
   const firstTab = tabData[2];
+
   return (
-    <Box>
-      {/* The Image */}
+    <Box position="relative" width="100%" height="100%">
+      {/* Background Image */}
       <Image
         src={firstTab.banner}
         alt={firstTab.name}
-        width={"100%"}
-        height={"100%"}
-        style={{
-          objectFit: "cover", // Ensures the image covers the entire container
-        }}
+        width="100%"
+        height="100%"
+        objectFit="cover"
       />
 
-      {/* Title on top of the image */}
-      <Box
-        style={{
-          position: "absolute", // Overlay the text on top of the image
-          top: "30%",
-          left: "5%",
-          color: "white",
-          padding: "10px 20px",
-          borderRadius: "8px", // Optional rounded corners
-          textAlign: "left",
-        }}
-      >
-        <Text
-          as="h1"
-          fontSize="5em"
-          fontWeight="bold"
-          letterSpacing={3}
-          data-aos="fade-up"
+      {isActive && (
+        <MotionBox
+          position="absolute"
+          color="white"
+          padding="20px"
+          borderRadius="8px"
+          left="5%"
+          top="10%"
+          transform="translateY(-50%)"
+          maxWidth="50%"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {firstTab.title}
-        </Text>
-      </Box>
+          {/* Title with 20 character wrapping */}
+          <Text
+            as="h1"
+            fontSize="6em"
+            fontWeight="bold"
+            letterSpacing={2}
+            whiteSpace="pre-line"
+            lineHeight="1.2"
+          >
+            {firstTab.title.substring(0, 20)}
+            {"\n"}
+            <Text as="span" color="#bd5735ff">
+              {/* Second part in red */}
+              {firstTab.title.substring(20)}
+            </Text>
+          </Text>
+
+          {/* Additional text below */}
+          <Text as="p" fontSize="1.5em" fontWeight="medium" mt="10px">
+            {firstTab.txt}
+          </Text>
+          <Button
+            colorScheme="black" // Use Chakra's color scheme for styling
+            variant="solid" // Button style (can be "outline", "ghost", etc.)
+            size="lg" // Button size (sm, md, lg)
+            mt={5}
+            letterSpacing={2}
+          >
+            Find out more
+          </Button>
+        </MotionBox>
+      )}
     </Box>
   );
 };
 
-export default TLous3;
+export default Tlous3;

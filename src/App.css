@@ -16,36 +16,54 @@ body {
 html {
   scroll-behavior: smooth;
 }
-.custom-swiper {
-  position: relative;
-}
 
-.swiper-slide {
-  position: relative;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
 
-.swiper-slide:hover {
-  transform: translateY(-10px);
-  z-index: 10;
-}
+ .tab-list {
+          position: relative;
+        }
 
-/* Black overlay for non-hovered slides, excluding active */
-.swiper-slide:not(:hover):not(.active) .tab-item {
-  filter: brightness(0.5);
-}
+        .tab-item {
+          position: relative;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+          cursor: pointer;
+      border-radius: 8px;
+       margin: 20px 0 ;
+       
+        }
 
-/* Ensure the active slide doesn't have the overlay */
-.swiper-slide.active .tab-item {
-  filter: none;
-}
+        /* Hovered image moves up */
+        .tab-item:hover {
+          transform: translateY(-5px);
+        }
 
-.tab-item {
-  position: relative;
-  transition: filter 0.3s ease;
-}
+        /* Overlay applies to non-hovered items */
+        .tab-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(13, 10, 10, 0.5);
+          border-radius: inherit;
+          transition: opacity 0.3s ease;
+        }
 
-.tab-item:focus {
-  outline: none; /* Removes the default browser focus outline */
-  box-shadow: none; /* Removes any default focus shadow */
-}
+        .tab-item.active {
+          opacity: 1;
+          
+         
+        }
+
+        .tab-item:not(.active) {
+          opacity: 0.7;
+          background: rgba(0, 0, 0, 0.5);
+        }
+
+        .tab-image:hover{
+            border: 2px solid #3498db;
+        }
+        .tab-image.active{
+            border: 2px solid #3498db;
+        }
+
+          

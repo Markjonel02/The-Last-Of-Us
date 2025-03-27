@@ -8,9 +8,7 @@ import "./App.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import AOS from "aos";
-import "aos/dist/aos.css";
-AOS.init();
+
 const theme = extendTheme({ themes });
 createRoot(document.getElementById("root")).render(
   <StrictMode>
