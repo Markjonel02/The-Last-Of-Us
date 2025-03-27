@@ -38,7 +38,13 @@ const Tlous1 = ({ isActive }) => {
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <Text as="h1" fontSize="10em" fontWeight="bold" letterSpacing={3}>
+          <Text
+            as="h1"
+            fontSize={{ base: "1em", md: "4em", lg: "7em", xl: "10em" }}
+            fontWeight="bold"
+            letterSpacing={3}
+            textAlign="center"
+          >
             {firstTab.title}
           </Text>
           <Text
@@ -52,6 +58,7 @@ const Tlous1 = ({ isActive }) => {
           </Text>
         </MotionBox>
       )}
+      <Text>{firstTab.title}</Text>
     </Box>
   );
 };

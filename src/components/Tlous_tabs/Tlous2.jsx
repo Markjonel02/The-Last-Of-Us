@@ -37,11 +37,16 @@ const Tlous2 = ({ isActive }) => {
           {/* Title with 20 character wrapping */}
           <Text
             as="h1"
-            fontSize="6em"
+            fontSize={{ base: "1em", md: "2em", lg: "4.5em", xl: "6em" }}
             fontWeight="bold"
             letterSpacing={2}
-            whiteSpace="pre-line"
-            lineHeight="1.2"
+            whiteSpace={{
+              base: "none",
+              md: "pre-line",
+              lg: "none",
+              xl: "pre-line",
+            }}
+            lineHeight={{ base: 1, md: 1, lg: 1.2 }}
           >
             {firstTab.title.substring(0, 20)}
             {"\n"}
@@ -52,7 +57,13 @@ const Tlous2 = ({ isActive }) => {
           </Text>
 
           {/* Additional text below */}
-          <Text as="p" fontSize="1.5em" fontWeight="medium" mt="10px">
+          <Text
+            as="p"
+            fontSize={{ base: "12px", md: "1em" }}
+            fontWeight="medium"
+            letterSpacing={2}
+            mt="10px"
+          >
             {firstTab.txt}
           </Text>
           <Button

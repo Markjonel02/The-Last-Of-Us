@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Tabs,
   TabList,
@@ -6,13 +6,12 @@ import {
   Tab,
   TabPanel,
   Image,
-  Box,
 } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import { tabData } from "./utils/Tabdata";
 import "swiper/css/free-mode";
-import { motion } from "framer-motion";
+
 import Tlous1 from "./Tlous_tabs/Tlous1";
 import Tlous2 from "./Tlous_tabs/Tlous2";
 import Tlous3 from "./Tlous_tabs/Tlous3";
@@ -57,21 +56,25 @@ const Overview = () => {
         <Swiper
           slidesPerView={5}
           grabCursor={true}
-          spaceBetween={5}
           modules={[FreeMode]}
           freeMode={{ enabled: true, momentum: true }}
           breakpoints={{
-            480: { slidesPerView: 2.8 },
-            760: { slidesPerView: 3.5 },
-            1024: { slidesPerView: 3.8 },
-            1114: { slidesPerView: 5 },
+            480: { slidesPerView: 2.8, spaceBetween: 5 },
+            760: { slidesPerView: 3.5, spaceBetween: 5 },
+            1024: { slidesPerView: 4.8, spaceBetween: 5 },
+            1114: { slidesPerView: 5, spaceBetween: 5 },
           }}
         >
           {tabData.map((tab, index) => (
             <SwiperSlide key={tab.id}>
               <Tab
-                width={{ base: "220px", md: "280px", l: "320px" }}
-                height={{ base: "120px", md: "180px", l: "180px" }}
+                /*            width={{ base: "220px", md: "220px", lg: "300px" }} */
+                width="100%"
+                height={{
+                  base: "120px",
+                  md: "150px",
+                  lg: "180px",
+                }}
                 className={`tab-item ${activeIndex === index ? "active" : ""}`}
                 onClick={() => setActiveIndex(index)}
                 onMouseEnter={() => setHoverIndex(index)}

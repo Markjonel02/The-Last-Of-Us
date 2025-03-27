@@ -26,7 +26,7 @@ const Tlous3 = ({ isActive }) => {
           padding="20px"
           borderRadius="8px"
           left="5%"
-          top="10%"
+          top={{ base: "5%", md: "30%" }}
           transform="translateY(-50%)"
           maxWidth="50%"
           initial={{ opacity: 0, y: 50 }}
@@ -34,26 +34,29 @@ const Tlous3 = ({ isActive }) => {
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {/* Title with 20 character wrapping */}
+          {/* Additional text below */}
           <Text
             as="h1"
-            fontSize="6em"
+            fontSize={{ base: "2em", md: "3em", lg: "6em", xl: "8em" }}
             fontWeight="bold"
-            letterSpacing={2}
-            whiteSpace="pre-line"
+            letterSpacing={3}
             lineHeight="1.2"
           >
-            {firstTab.title.substring(0, 20)}
-            {"\n"}
-            <Text as="span" color="#bd5735ff">
-              {/* Second part in red */}
-              {firstTab.title.substring(20)}
-            </Text>
+            {firstTab.title}
           </Text>
 
           {/* Additional text below */}
-          <Text as="p" fontSize="1.5em" fontWeight="medium" mt="10px">
-            {firstTab.txt}
+          <Text
+            as="p"
+            fontSize={{ base: "15px", md: "1em", lg: "1.5em" }}
+            fontWeight="medium"
+            mt="10px"
+            letterSpacing={2}
+            whiteSpace={{ base: "none", md: "none" }}
+          >
+            {firstTab.txt.substring(0, 97)}
+            {"\n"}
+            {firstTab.txt.substring(97)}
           </Text>
           <Button
             colorScheme="black" // Use Chakra's color scheme for styling
