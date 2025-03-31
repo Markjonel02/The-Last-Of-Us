@@ -39,15 +39,15 @@ const Chapters = () => {
       }}
     >
       <Box
-        backgroundImage={`url(${grunge})`}
+        /*     backgroundImage={`url(${grunge})`}
         backgroundSize="cover"
         backgroundPosition="center"
-        backgroundRepeat="no-repeat"
+        backgroundRepeat="no-repeat" */
+        backgroundColor="black"
         position="absolute" // Ensures it stays as a background
         width="100%" // Cover the whole Flex container
         height="100%" // Ensures full division coverage
         zIndex={0} // Background stays behind other elements
-        filter="invert(1)"
       ></Box>
 
       <Box p={5} position="relative" zIndex={2}>

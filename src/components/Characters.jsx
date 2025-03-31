@@ -17,11 +17,24 @@ import {
 import { Navigation, Autoplay } from "swiper/modules";
 import { Infected } from "./utils/Infected";
 import { MainCharacters } from "./utils/MainCharacters";
-import bg from "../assets/img/grunge border.png";
+import bg from "../assets/img/the-last-of-us-franchise-hub-background-block-desktop-03-en-15sep22.webp";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
-
+import { keyframes } from "@emotion/react";
+// Define the glow animation
+const glowAnimation = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+`;
 const MotionImage = motion(Image);
+
 const Characters = () => {
   const textLength = useBreakpointValue({
     base: 300,
@@ -65,7 +78,6 @@ const Characters = () => {
         position="absolute"
         left={0}
         zIndex={0} // Ensures it's the bottom-most layer
-        filter="invert(1)"
       />
       {/* Left Container */}
       <Box
@@ -78,13 +90,19 @@ const Characters = () => {
       >
         <Text
           as="h1"
-          fontSize={{ base: "5xl", md: "5xl", sm: "5xl", xl: "7xl" }} // Fixed font size for mobile
+          fontSize={{ base: "5xl", md: "5xl", sm: "5xl", xl: "8xl" }} // Fixed font size for mobile
           mb={4}
           fontWeight={900}
           letterSpacing={3}
           zIndex={1}
+          bgGradient="linear(to-r,rgb(255, 255, 255),rgb(153, 82, 82),rgb(216, 65, 65))" // Horror-themed gradient colors
+          bgClip="text"
+          animation={`${glowAnimation} 10s ease-in-out infinite`} // Slower and smoother animation
+          css={{
+            backgroundSize: "200% 200%", // Makes gradient smoother
+          }}
         >
-          Character
+          meet the cast
         </Text>
         <Box className="Tab">
           <Tabs variant="unstyled" maxW="md" isFitted defaultIndex={0}>
@@ -170,7 +188,6 @@ const Characters = () => {
                                     left={0}
                                     w="100%"
                                     h="100%"
-                                    bg="blackAlpha.500"
                                     borderRadius="md"
                                     zIndex={1}
                                     pointerEvents="none" // Prevents blocking interaction

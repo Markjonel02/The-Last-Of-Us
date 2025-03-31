@@ -79,6 +79,7 @@ const Overview = () => {
                 onClick={() => setActiveIndex(index)}
                 onMouseEnter={() => setHoverIndex(index)}
                 onMouseLeave={() => setHoverIndex(null)}
+                overflow={"hidden"}
                 _focus={{ outline: "none", boxShadow: "none" }}
               >
                 {hoverIndex !== null && hoverIndex !== index && (

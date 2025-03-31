@@ -1,66 +1,19 @@
 import { Box, Flex, Text, Image, useBreakpointValue } from "@chakra-ui/react";
-import trees from "../assets/img/trees.jpg";
-import bloodhand from "../assets/img/Horror hand.png";
-import { useEffect, useState } from "react";
-import bloodstain from "../assets/img/bloodstain.png";
+
+import imgbg from "../assets/img/TLOUS BG.png";
 
 const Story = () => {
-  const [angle, setAngle] = useState(0);
-  const [bloodHandPosition, setBloodHandPosition] = useState({
-    x: "50px",
-    y: "50px",
-    angle: 0,
-  });
-  const zIndexValue = useBreakpointValue({ base: 3, md: 10 });
-  useEffect(() => {
-    const imageSize = 200; // Assuming the blood hand image is 200px wide/tall
-
-    const updateBloodHandPosition = () => {
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      const maxX = viewportWidth - imageSize;
-      const maxY = viewportHeight - imageSize;
-
-      setBloodHandPosition({
-        x: `${Math.random() * maxX}px`,
-        y: `${Math.random() * maxY}px`,
-        angle: Math.random() * 360,
-      });
-    };
-
-    const angleInterval = setInterval(() => {
-      setAngle(Math.random() * 360);
-    }, 1000);
-
-    const bloodHandInterval = setInterval(updateBloodHandPosition, 3000);
-
-    updateBloodHandPosition(); // Set initial position
-
-    return () => {
-      clearInterval(angleInterval);
-      clearInterval(bloodHandInterval);
-    };
-  }, []);
-
   return (
     <Flex
-      h="100vh"
+      h="full"
       w="full"
       p="4"
-      alignItems="center"
-      justifyContent="center"
       flexDirection="column"
-      textAlign="center"
       position="relative"
-      blur={1}
-      sx={{
-        backgroundImage: `url(${trees})`,
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      backgroundImage={`url(${imgbg})`}
+      backgroundSize="cover"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
     >
       {/* Dark Overlay */}
       <Box
@@ -73,29 +26,8 @@ const Story = () => {
         zIndex={1}
       />
 
-      {/* Blood Hand Image */}
-      <Image
-        src={bloodhand}
-        position="absolute"
-        width="200px"
-        height="auto"
-        top={bloodHandPosition.y}
-        left={bloodHandPosition.x}
-        transform={`rotate(${bloodHandPosition.angle}deg)`}
-        transition="all 0.5s ease-in-out"
-        zIndex={2}
-      />
-
-      <Image
-        src={bloodstain}
-        width="500px"
-        height="auto"
-        position="absolute"
-        zIndex={zIndexValue}
-        opacity={{ base: 0.6, md: 0.7 }}
-      />
       {/* Content */}
-      <Box position="relative" zIndex={2}>
+      <Box position="relative" zIndex={2} left="12">
         <Text
           fontSize={["2em", "4em", "5em"]}
           fontWeight="bold"
@@ -112,24 +44,46 @@ const Story = () => {
         p={4}
         opacity={0.8}
         borderRadius="md"
-        w={["90%", "80%", "60%"]}
+        w={{ base: "90%", md: "80%", xl: "50%" }}
         position="relative"
+        left="10"
         zIndex={2}
       >
         <Text
-          fontSize={["md", "lg", "xl"]}
+          fontSize={{ base: "md", lg: "md", xl: "1.3em" }}
           letterSpacing={2}
           color="whiteAlpha.900"
+          whiteSpace={{ base: "normal", md: "nowrap", xl: "normal" }}
+          overflow={{ base: "hidden", md: "visible", xl: "visible" }}
         >
-          <Text as="span" backgroundColor="#FECE61" p={2} borderRadius={2}>
-            The Last of Us
-          </Text>{" "}
-          is set in a post apocalyptic world where a fungal infection turns
-          people into monstrous creatures. Joel, a survivor, must smuggle Ellie,
-          a girl immune to the infection, across the U.S. They face many dangers
-          and form a deep bond, with Joel seeing Ellie as a daughter. The story
-          explores survival, trust, and protection and is acclaimed for its
-          storytelling and character development.
+          <Box display={{ base: "block", md: "inline" }}>
+            Winner of more than 500 Game of the Year awards, The Last of Us
+            series is critically renowned for its emotional storytelling,
+            unforgettable characters, and suspenseful action&#x2010;adventure
+            gameplay.
+          </Box>
+          <br />
+          <br />
+          <Box display={{ base: "block", md: "block", xl: "inline" }}>
+            Decades after the Cordyceps infection ravaged the United States,
+            ruthless factions and Infected present a constant threat to
+            survivors. Rugged smuggler Joel is tasked with escorting teenager
+            Ellie to safety. Although Joel is traumatized by his past, their
+            brutal cross&#x2010;country journey gives him something to fight
+            for.
+          </Box>
+          <br />
+          <br />
+          <Box display={{ base: "block", md: "block", xl: "inline" }}>
+            Five years later, Joel and Ellie settle in Jackson, Wyoming. When a
+            harrowing incident rattles the community, Ellie embarks on a
+            relentless journey for justice and closure. The dangers she
+            encounters aren&apos;t her only obstacles; she must also grapple
+            with the repercussions of her own actions. Play The Last of Us Part
+            I, now available on PlayStation® 5 and for PC, and continue your
+            journey with The Last of Us Part II Remastered on PS5® and PC on
+            April 3.
+          </Box>
         </Text>
       </Box>
     </Flex>

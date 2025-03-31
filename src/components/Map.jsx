@@ -1,7 +1,6 @@
 import React from "react";
 import Maps from "../assets/img/PineTools.com_Map.png";
 import { Box, Image, Text, Flex } from "@chakra-ui/react";
-import grunge from "../assets/img/grunge border.png";
 
 const Map = () => {
   return (
@@ -16,17 +15,12 @@ const Map = () => {
     >
       {/* Background layer */}
       <Box
-        backgroundImage={`url(${grunge})`}
-        backgroundSize="cover"
-        backgroundPosition="center"
-        backgroundRepeat="no-repeat"
+        backgroundColor="black"
         width="100%"
         height="100%"
         position="absolute"
         left={0}
-        top={2}
         zIndex={0} // Ensures it's the bottom-most layer
-        filter="invert(1)"
       />
 
       {/* Floating "MAPS" title */}
