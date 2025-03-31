@@ -14,6 +14,7 @@ const Story = () => {
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
+      overflowX="hidden"
     >
       {/* Dark Overlay */}
       <Box
@@ -48,11 +49,12 @@ const Story = () => {
         position="relative"
         left="10"
         zIndex={2}
+        overflow="hidden"
       >
         <Text
           fontSize={{ base: "md", lg: "md", xl: "1.3em" }}
           letterSpacing={2}
-          color="whiteAlpha.900"
+          color="#f2f2f2"
           whiteSpace={{ base: "normal", md: "nowrap", xl: "normal" }}
           overflow={{ base: "hidden", md: "visible", xl: "visible" }}
         >

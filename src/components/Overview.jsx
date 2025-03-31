@@ -57,7 +57,7 @@ const Overview = () => {
           slidesPerView={5}
           grabCursor={true}
           modules={[FreeMode]}
-          freeMode={{ enabled: true, momentum: true }}
+          freeMode={{ enabled: true }}
           breakpoints={{
             480: { slidesPerView: 2.8, spaceBetween: 5 },
             760: { slidesPerView: 3.5, spaceBetween: 5 },

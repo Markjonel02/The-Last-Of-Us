@@ -1,28 +1,51 @@
-import MainComponent from "./components/MainComponent";
-import Story from "./components/Story";
+import { lazy, Suspense, memo } from "react";
+import { Box, Text } from "@chakra-ui/react";
 
-import Navigation from "./components/Navigation";
-import Map from "./components/Map";
-import Chapters from "./components/Chapters";
-import { Box } from "@chakra-ui/react";
-import { memo } from "react";
-import Characters from "./components/Characters";
-
-import Overview from "./components/Overview";
+const MainComponent = lazy(() => import("./components/MainComponent"));
+const Story = lazy(() => import("./components/Story"));
+const Navigation = lazy(() => import("./components/Navigation"));
+const Map = lazy(() => import("./components/Map"));
+const Chapters = lazy(() => import("./components/Chapters"));
+const Characters = lazy(() => import("./components/Characters"));
+const Overview = lazy(() => import("./components/Overview"));
+const Discover = lazy(() => import("./components/Discover"));
+const LoadingPlaceholder = () => (
+  <Box className="loading-container">
+    <Box className="loading-shimmer">
+      <Text
+        as="h1"
+        fontSize={{ base: "2em", md: "3em", xl: "9em" }}
+        className="glowing-text"
+      >
+        the last of us
+      </Text>
+      <Text
+        as="h4"
+        textAlign="center"
+        fontSize={{ base: "1em", md: "2em", xl: "4em" }}
+        className="glowing-text"
+      >
+        Loading...
+      </Text>
+    </Box>
+  </Box>
+);
 
 const App = () => {
   return (
-    <Box>
-      <Navigation />
-      <MainComponent>
-        <Overview />
-
-        <Story />
-        <Map />
-        <Chapters />
-        <Characters />
-      </MainComponent>
-    </Box>
+    <Suspense fallback={<LoadingPlaceholder />}>
+      <Box>
+        <Navigation />
+        <MainComponent>
+          <Overview />
+          <Story />
+          <Map />
+          <Discover />
+          <Chapters />
+          <Characters />
+        </MainComponent>
+      </Box>
+    </Suspense>
   );
 };
 
