@@ -18,7 +18,6 @@ const Discover = () => {
       alignItems="center"
       w="100%"
       h="100vh"
-      minH="100vh" // Ensures enough space for Swiper
     >
       {/* Title */}
       <Text
@@ -37,7 +36,7 @@ const Discover = () => {
         grabCursor={true}
         centeredSlides={true}
         breakpoints={{
-          400: { slidesPerView: 2, spaceBetween: 5 },
+          400: { slidesPerView: 1, spaceBetween: 0 },
           760: { slidesPerView: 2.3, spaceBetween: 5 },
           1024: { slidesPerView: 3.1, spaceBetween: 5 },
           1114: { slidesPerView: 3.8, spaceBetween: 5 },
@@ -65,8 +64,10 @@ const Discover = () => {
                 src={disc.image}
                 alt={disc.title}
                 borderRadius="md"
-                h={{ base: "200px", md: "350px", lg: "350px" }}
-                w={{ base: "300px", md: "400px", lg: "100%" }}
+                /*     h={{ base: "200px", md: "350px", lg: "350px" }}
+                w={{ base: "300px", md: "400px", lg: "100%" }} */
+                h="400px"
+                w="100%"
                 objectFit="cover"
               />
               {/* Game Info */}
@@ -84,8 +85,15 @@ const Discover = () => {
                   {disc.title}
                 </Text>
 
-                <Text fontSize="sm" mt={2}>
-                  {disc.desc}
+                <Text
+                  fontSize="sm"
+                  fontWeight={200}
+                  letterSpacing={1}
+                  mt={2}
+                  noOfLines={2}
+                >
+                  {disc.desc || "No description available".substring(0, 20)}{" "}
+                  {/* Fallback */}
                 </Text>
               </Box>
             </Box>

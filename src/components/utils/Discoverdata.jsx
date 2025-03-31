@@ -4,46 +4,47 @@ import tlous3 from "../../assets/img/Discover/tlous-slider-3.png";
 import tlous4 from "../../assets/img/Discover/tlous-slider-4.png";
 import tlous5 from "../../assets/img/Discover/tlous-slider-5.png";
 import tlous6 from "../../assets/img/Discover/tlous-slider-6.png";
-const tlousdisc = (id, title, image, genre, desc) => {
+
+// Correcting parameter order
+const tlousdisc = (id, title, image, desc) => {
   return { id, title, image, genre: "action", desc };
 };
 
 export const discoverData = [
   tlousdisc(
     1,
-    "the last of us part I",
+    "The Last of Us Part I",
     tlous1,
-    "Endure and Survive, Relive the beloved game that started it all, rebuilt for the playstation@5 console, and now available on pc. "
+    "Endure and Survive. Relive the beloved game that started it all, rebuilt for PlayStation 5 and now available on PC."
   ),
   tlousdisc(
     2,
-    "the last of us: left behind",
+    "The Last of Us: Left Behind",
     tlous2,
-
-    "The last of us: left behind combines themes survival, loyalty and love with tense survival action gameplay int this critically acclaimed chapter. "
+    "The Last of Us: Left Behind combines survival, loyalty, and love with intense gameplay in this critically acclaimed chapter."
   ),
   tlousdisc(
     3,
-    "the last of us part II",
+    "The Last of Us Part II",
     tlous3,
-    "confront the devastating physical and emotional repercussions of ellies action"
+    "Confront the devastating physical and emotional repercussions of Ellie's actions."
   ),
   tlousdisc(
     4,
-    "the last of us Remastered",
+    "The Last of Us Remastered",
     tlous4,
-    "winner of over 200 game of the year awards, the last of us been rebuilt for the playstation@4 system."
+    "Winner of over 200 Game of the Year awards, The Last of Us has been rebuilt for PlayStation 4."
   ),
   tlousdisc(
     5,
-    "the last of us ",
+    "The Last of Us",
     tlous5,
-    "Play as joel, a smuggler tasked with escorting a teenage girl, ellie, accross a post apocalyptic united states"
+    "Play as Joel, a smuggler tasked with escorting a teenage girl, Ellie, across a post apocalyptic United States."
   ),
   tlousdisc(
     6,
-    "the last of us part II remastered ",
+    "The Last of Us Part II Remastered",
     tlous6,
-    "experience ellie and abby emotional journeys with new visual and performance enhancements and insights into the creation of game. Available now on ps5, and arriving for pc on april 3 2025."
+    "Experience Ellie and Abby's emotional journeys with new enhancements. Available now on PS5, arriving for PC on April 3, 2025."
   ),
 ];
