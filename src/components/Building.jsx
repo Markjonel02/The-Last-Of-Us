@@ -3,6 +3,7 @@ import { vidData } from "./utils/Viddata";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { data } from "framer-motion/client";
+import { Navigation } from "swiper/modules";
 
 const Building = () => {
   return (
@@ -30,7 +31,9 @@ const Building = () => {
         speed={1200}
         slidesPerView={3.8}
         loop={true}
+        grabCursor="pointer"
         spaceBetween={30}
+        modules={[Navigation]}
         breakpoints={{
           400: { slidesPerView: 1.3 },
           760: { slidesPerView: 2.7 },

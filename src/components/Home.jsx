@@ -7,7 +7,7 @@ const Home = () => {
       {/* Floating Text Section - Fixed to the Left */}
       <Box
         position="absolute"
-        top={{ base: "40%", md: "45%" }}
+        top={{ base: "35%", md: "45%" }}
         left={"5%"} // Fixed to the left
         transform="translateY(-50%)"
         zIndex="20"

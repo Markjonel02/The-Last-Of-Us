@@ -11,6 +11,7 @@ const Overview = lazy(() => import("./components/Overview"));
 const Discover = lazy(() => import("./components/Discover"));
 const Building = lazy(() => import("./components/Building"));
 const Home = lazy(() => import("./components/Home"));
+const Faq = lazy(() => import("./components/Faqs"));
 
 const LoadingPlaceholder = () => (
   <Box className="loading-container">
@@ -37,8 +38,10 @@ const LoadingPlaceholder = () => (
 const App = () => {
   return (
     <Suspense fallback={<LoadingPlaceholder />}>
-      <Box>
+      <header>
         <Navigation />
+      </header>
+      <Box>
         <MainComponent>
           <Overview />
           <Story />
@@ -48,6 +51,7 @@ const App = () => {
           <Characters />
           <Building />
           <Community />
+          <Faq />
         </MainComponent>
       </Box>
     </Suspense>
