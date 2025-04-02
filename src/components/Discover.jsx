@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Image, Text } from "@chakra-ui/react";
 import { discoverData } from "./utils/Discoverdata";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
+import { FreeMode, Navigation } from "swiper/modules";
 import bg from "../assets/img/background Tlous.png";
 
 const Discover = () => {
@@ -38,7 +38,7 @@ const Discover = () => {
         breakpoints={{
           400: { slidesPerView: 1, spaceBetween: 0 },
           760: { slidesPerView: 2.3, spaceBetween: 5 },
-          1024: { slidesPerView: 3.1, spaceBetween: 5 },
+          1024: { slidesPerView: 3, spaceBetween: 5 },
           1114: { slidesPerView: 3.8, spaceBetween: 5 },
         }}
         style={{ width: "100%", paddingTop: "50px" }} // Adds space below title
