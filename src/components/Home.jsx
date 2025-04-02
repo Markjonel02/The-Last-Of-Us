@@ -1,30 +1,58 @@
 import { Flex, Button, Box, Text } from "@chakra-ui/react";
 import vids from "../assets/vid/The last of us.mp4";
+
 const Home = () => {
   return (
-    <>
+    <Box position="relative">
+      {/* Floating Text Section - Fixed to the Left */}
       <Box
-        className="Header"
         position="absolute"
-        left={["5%", "10%", "1%"]}
-        screen
-        size
-        top={["20%", "25%", "50%", "60%"]}
+        top={{ base: "40%", md: "45%" }}
+        left={"5%"} // Fixed to the left
         transform="translateY(-50%)"
-        zIndex="10"
-        width={["80%", "60%", "80%"]}
+        zIndex="20"
         textAlign="left"
       >
         <Text
-          color={"White"}
-          letterSpacing="4px"
-          fontWeight={900}
-          fontSize={["1em", "2em", "5em", "11em"]} // Responsive font size
+          fontSize={{ base: "3em", md: "4em", lg: "8em" }}
+          fontWeight="bold"
+          color="white"
+          letterSpacing="wider"
         >
-          THE LAST OF US
+          The Last of Us
         </Text>
+        <Text
+          fontSize={{ base: "2.9em", md: "4em", lg: "5em" }}
+          fontWeight="bold"
+          color="#bd5735ff"
+          letterSpacing="wider"
+        >
+          Remastered II
+        </Text>
+      </Box>
 
-        {/* Buttons Section */}
+      {/* Video Section */}
+      <Box className="Video" position="relative">
+        <video
+          src={vids}
+          autoPlay
+          muted
+          loop
+          style={{ width: "100%", height: "auto" }}
+        ></video>
+      </Box>
+
+      {/* Buttons Section */}
+      <Box
+        className="Header"
+        position="absolute"
+        left={"5%"} // Fixed to the left
+        top={["60%", "65%", "70%"]} // Adjusted for better placement
+        transform="translateY(-50%)"
+        zIndex="10"
+        width={"80%"}
+        textAlign="left"
+      >
         <Flex gap={4} mt={4}>
           <Button
             color="black"
@@ -41,8 +69,6 @@ const Home = () => {
           >
             Watch Trailer
           </Button>
-
-          {/* Buy Now Button */}
           <Button
             color="white"
             fontWeight="bold"
@@ -60,17 +86,7 @@ const Home = () => {
           </Button>
         </Flex>
       </Box>
-
-      <Box className="Video" position="relative">
-        <video
-          src={vids}
-          autoPlay
-          muted
-          loop
-          style={{ width: "100%", height: "auto" }}
-        ></video>
-      </Box>
-    </>
+    </Box>
   );
 };
 

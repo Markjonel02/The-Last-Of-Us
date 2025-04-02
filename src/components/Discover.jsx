@@ -36,10 +36,13 @@ const Discover = () => {
         grabCursor={true}
         centeredSlides={true}
         breakpoints={{
-          400: { slidesPerView: 1, spaceBetween: 0 },
-          760: { slidesPerView: 2.3, spaceBetween: 5 },
-          1024: { slidesPerView: 3, spaceBetween: 5 },
-          1114: { slidesPerView: 3.8, spaceBetween: 5 },
+          320: { slidesPerView: 1, spaceBetween: 5 },
+          480: { slidesPerView: 1.5, spaceBetween: 10 },
+          640: { slidesPerView: 2, spaceBetween: 10 },
+          768: { slidesPerView: 2.5, spaceBetween: 15 },
+          1024: { slidesPerView: 3, spaceBetween: 20 },
+          1200: { slidesPerView: 3.5, spaceBetween: 20 },
+          1400: { slidesPerView: 4, spaceBetween: 25 },
         }}
         style={{ width: "100%", paddingTop: "50px" }} // Adds space below title
       >
@@ -64,10 +67,8 @@ const Discover = () => {
                 src={disc.image}
                 alt={disc.title}
                 borderRadius="md"
-                /*     h={{ base: "200px", md: "350px", lg: "350px" }}
-                w={{ base: "300px", md: "400px", lg: "100%" }} */
-                h="400px"
                 w="100%"
+                h="350px" // Ensuring uniform height for all images
                 objectFit="cover"
               />
               {/* Game Info */}
