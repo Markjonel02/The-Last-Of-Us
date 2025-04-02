@@ -20,7 +20,7 @@ const Building = () => {
         letterSpacing={1}
         fontSize={{ base: "1em", md: "1.5em" }}
         whiteSpace="pre-line"
-        mb={5}
+        mb={20}
       >
         Go behind the scenes to discover how The Last of Us Part I was created,
         and learn how iconic scenes were adapted for the acclaimed
@@ -43,6 +43,7 @@ const Building = () => {
               justifyContent="center"
               alignItems="center"
               flexDirection="column"
+              mb={20}
             >
               <Box width="100%" borderRadius="8px">
                 <img
