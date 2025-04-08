@@ -30,7 +30,7 @@ const Community = () => {
         The Last of Us Community
       </Text>
       <Text
-        fontSize={{ base: "md", md: "lg" }}
+        fontSize={{ base: "md", md: "0.9em" }}
         mt={4}
         maxW="600px"
         letterSpacing={2}

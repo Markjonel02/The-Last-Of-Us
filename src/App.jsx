@@ -12,7 +12,7 @@ const Discover = lazy(() => import("./components/Discover"));
 const Building = lazy(() => import("./components/Building"));
 const Home = lazy(() => import("./components/Home"));
 const Faq = lazy(() => import("./components/Faqs"));
-
+const Footer = lazy(() => import("./components/Footer"));
 const LoadingPlaceholder = () => (
   <Box className="loading-container">
     <Box className="loading-shimmer">
@@ -47,13 +47,14 @@ const App = () => {
           <Story />
           <Map />
           <Discover />
-          <Home />
           <Characters />
+          <Home />
           <Building />
           <Community />
-          <Faq />
+          <Faq /> <Footer />
         </MainComponent>
       </Box>
+      <footer></footer>
     </Suspense>
   );
 };

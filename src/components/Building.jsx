@@ -19,7 +19,7 @@ const Building = () => {
         color="white"
         textAlign="center"
         letterSpacing={1}
-        fontSize={{ base: "1em", md: "1.5em" }}
+        fontSize={{ base: "1em", md: "0.9em" }}
         whiteSpace="pre-line"
         mb={20}
       >

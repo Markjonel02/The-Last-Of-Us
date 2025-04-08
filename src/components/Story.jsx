@@ -52,10 +52,10 @@ const Story = () => {
         overflow="hidden"
       >
         <Text
-          fontSize={{ base: "md", lg: "md", xl: "1.3em" }}
+          fontSize={{ base: "12px", lg: "md", xl: "1.3em" }}
           letterSpacing={2}
           color="#f2f2f2"
-          whiteSpace={{ base: "normal", md: "nowrap", xl: "normal" }}
+          whiteSpace={{ base: "normal", md: "wrap", xl: "normal" }}
           overflow={{ base: "hidden", md: "visible", xl: "visible" }}
         >
           <Box display={{ base: "block", md: "inline" }}>
