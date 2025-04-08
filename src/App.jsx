@@ -38,22 +38,22 @@ const LoadingPlaceholder = () => (
 const App = () => {
   return (
     <Suspense fallback={<LoadingPlaceholder />}>
-      <header>
-        <Navigation />
-      </header>
-      <Box>
-        <MainComponent>
-          <Overview />
-          <Story />
-          <Map />
-          <Discover />
-          <Characters />
-          <Home />
-          <Building />
-          <Community />
-          <Faq /> <Footer />
-        </MainComponent>
-      </Box>
+      <MainComponent>
+        <header>
+          {" "}
+          <Navigation />
+        </header>
+        <Overview />
+        <Story />
+        <Map />
+        <Discover />
+        <Characters />
+        <Home />
+        <Building />
+        <Community />
+        <Faq /> <Footer />
+      </MainComponent>
+
       <footer></footer>
     </Suspense>
   );
