@@ -21,6 +21,7 @@ import bg from "../assets/img/the-last-of-us-franchise-hub-background-block-desk
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
 import { keyframes } from "@emotion/react";
+
 // Define the glow animation
 const glowAnimation = keyframes`
   0% {
@@ -57,6 +58,8 @@ const Characters = () => {
     setSelectedTab(tabKey);
     setSelectedCharacter(datasource[tabKey][0]); // Ensure correct dataset is selected
   };
+
+  const selectedTabIndex = selectedTab === "infecters" ? 0 : 1; // Set index for Tabs
 
   return (
     <Flex
@@ -105,7 +108,16 @@ const Characters = () => {
           meet the cast
         </Text>
         <Box className="Tab">
-          <Tabs variant="unstyled" maxW="md" isFitted defaultIndex={0}>
+          <Tabs
+            variant="unstyled"
+            maxW="md"
+            isFitted
+            defaultIndex={selectedTabIndex} // Set the default index from the selectedTab state
+            index={selectedTabIndex} // Bind to the selectedTab state
+            onChange={(index) =>
+              handleChangeTab(index === 0 ? "infecters" : "mc")
+            }
+          >
             <TabList>
               <Tab
                 border="2px solid white"
@@ -278,8 +290,8 @@ const Characters = () => {
               <Box
                 textAlign="center"
                 color="white"
-                w={{ base: "100%", md: 400 }}
-                h={600}
+                w={{ base: "100%", md: "400px" }}
+                h={{ base: "100vh", md: "100vh" }}
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
@@ -291,50 +303,32 @@ const Characters = () => {
                 <Image
                   src={char.image}
                   alt={char.charname}
-                  objectFit={{ base: "cover", md: "100%" }}
-                  width="100%"
-                  height="100%"
+                  objectFit="contain" // Changed to 'contain' so the image fits without cutting off
+                  width="100%" // Adjust the width to scale it down
+                  height="90%" // Adjust the height proportionally to maintain aspect ratio
                   zIndex={1}
+                  bottom="50%"
                   position="absolute"
-                  top={0}
-                  left={0}
+                  top="50%" // Adjust the top position to vertically center the image
+                  left="50%" // Adjust the left position to horizontally center the image
+                  transform="translate(-50%, -50%)" // Center the image both vertically and horizontally
                   borderRadius={8}
-                  filter="drop-shadow(0 10px 6px rgba(153, 149, 149, 0.25))"
+                  filter="drop-shadow(0 5px 6px rgba(153, 149, 149, 0.25))"
                 />
-                {/*               Reflection Effect */}
+                {/* Reflection Effect */}
                 <Image
                   src={char.image}
                   alt={`${char.Infectedname} Reflection`}
                   objectFit="contain"
-                  width="100%"
-                  height="100%"
+                  width="80%" // Same width as the main image
+                  height="80%" // Same height as the main image
                   opacity={0.4}
                   position="absolute"
-                  bottom="-50%"
-                  left={55}
-                  transform="scaleX(-1)"
+                  left="55%" // Horizontally center the reflection
+                  transform="scaleX(-1) translateX(50%)" // Flip the reflection horizontally and center it
                   zIndex={0}
                   top={0}
                 />
-              </Box>
-              <Box
-                position="absolute"
-                bottom={0}
-                left={0}
-                right={0}
-                textAlign="center"
-                bg="blackAlpha.200" // Darkened background for better text visibility
-                p={2}
-                borderRadius={8}
-              >
-                <Text
-                  fontSize="3xl"
-                  color="white"
-                  letterSpacing={2}
-                  zIndex={12}
-                >
-                  {char.name || char.Infectedname}
-                </Text>
               </Box>
             </SwiperSlide>
           ))}

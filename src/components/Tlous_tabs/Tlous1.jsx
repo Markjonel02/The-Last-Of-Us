@@ -49,7 +49,7 @@ const Tlous1 = ({ isActive }) => {
           </Text>
           <Text
             as="h1"
-            fontSize="3em"
+            fontSize={{ base: "1.9em", md: "3em" }}
             fontWeight="bold"
             letterSpacing={3}
             textAlign="center"

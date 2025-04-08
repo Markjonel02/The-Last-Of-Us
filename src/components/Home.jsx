@@ -14,7 +14,7 @@ const Home = () => {
         textAlign="left"
       >
         <Text
-          fontSize={{ base: "3em", md: "4em", lg: "8em" }}
+          fontSize={{ base: "2em", md: "4em", lg: "8em" }}
           fontWeight="bold"
           color="white"
           letterSpacing="wider"
@@ -22,7 +22,7 @@ const Home = () => {
           The Last of Us
         </Text>
         <Text
-          fontSize={{ base: "2.9em", md: "4em", lg: "5em" }}
+          fontSize={{ base: "2em", md: "4em", lg: "5em" }}
           fontWeight="bold"
           color="#bd5735ff"
           letterSpacing="wider"

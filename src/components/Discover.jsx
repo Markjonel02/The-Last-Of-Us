@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Image, Text } from "@chakra-ui/react";
 import { discoverData } from "./utils/Discoverdata";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation } from "swiper/modules";
+import { FreeMode } from "swiper/modules";
 import bg from "../assets/img/background Tlous.png";
 
 const Discover = () => {
@@ -21,9 +21,8 @@ const Discover = () => {
     >
       {/* Title */}
       <Text
-        fontSize={{ base: "4em", md: "em", lg: "6em" }}
+        fontSize={{ base: "2.9em", md: "3em", lg: "5em" }}
         color="whiteAlpha.900"
-        mb={6}
       >
         Discover the last of us
       </Text>
@@ -49,11 +48,15 @@ const Discover = () => {
         {discoverData.map((disc, id) => (
           <SwiperSlide key={id}>
             <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
               borderRadius="lg"
               overflow="hidden"
-              maxW="lg"
+              maxW="md"
               boxShadow="lg"
-              p={3}
+              p={4}
               color="white"
               transition="all 0.2s ease"
               _hover={{
@@ -67,10 +70,12 @@ const Discover = () => {
                 src={disc.image}
                 alt={disc.title}
                 borderRadius="md"
-                w="100%"
-                h="350px" // Ensuring uniform height for all images
+                w={{ base: "100%", md: "250px", lg: "100%" }}
+                h={{ base: "250px", md: "300px", lg: "320px" }}
+                maxW="100%"
                 objectFit="cover"
               />
+
               {/* Game Info */}
               <Box mt={4}>
                 <Text fontSize="0.9em" color="#54b2ffff" letterSpacing={1}>

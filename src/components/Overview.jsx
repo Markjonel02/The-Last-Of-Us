@@ -59,6 +59,7 @@ const Overview = () => {
           modules={[FreeMode]}
           freeMode={{ enabled: true }}
           breakpoints={{
+            390: { slidesPerView: 1.9, spaceBetween: 5 },
             480: { slidesPerView: 2.8, spaceBetween: 5 },
             760: { slidesPerView: 3.5, spaceBetween: 5 },
             1024: { slidesPerView: 4.8, spaceBetween: 5 },

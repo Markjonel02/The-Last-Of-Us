@@ -37,7 +37,7 @@ const TheLastOfUsFooter = () => {
         {/* Navigation */}
         <VStack align="flex-start">
           <Text
-            fontWeight="normal"
+            fontWeight="400"
             fontSize="lg"
             color={hoverColor}
             letterSpacing={2}
@@ -61,10 +61,10 @@ const TheLastOfUsFooter = () => {
         {/* Support */}
         <VStack align="flex-start">
           <Text
-            fontWeight="semibold"
             fontSize="lg"
             color={hoverColor}
             letterSpacing={2}
+            fontWeight="400"
           >
             Support
           </Text>
@@ -82,7 +82,7 @@ const TheLastOfUsFooter = () => {
         {/* Social */}
         <Box>
           <Text
-            fontWeight="semibold"
+            fontWeight="400"
             fontSize="lg"
             mb={4}
             color={hoverColor}

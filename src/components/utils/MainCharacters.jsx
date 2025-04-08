@@ -116,7 +116,7 @@ export const MainCharacters = [
       EyeColor: "Brown",
     },
   },
-  {
+  /*  {
     id: 5,
     name: "Tommy Miller",
     image: tommy,
@@ -146,5 +146,5 @@ export const MainCharacters = [
       HairColor: "Dirty blond",
       EyeColor: "Green",
     },
-  },
+  }, */
 ];

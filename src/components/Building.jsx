@@ -34,6 +34,7 @@ const Building = () => {
         spaceBetween={30}
         modules={[Navigation]}
         breakpoints={{
+          390: { slidesPerView: 1 },
           400: { slidesPerView: 1.3 },
           760: { slidesPerView: 2.7 },
           1024: { slidesPerView: 3.1 },

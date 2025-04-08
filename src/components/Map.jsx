@@ -40,7 +40,7 @@ const Map = () => {
       <Box zIndex={1} borderRadius="lg" padding="10px">
         <Image
           src={Maps}
-          width="800px"
+          width={{ base: "450px", md: "800px" }}
           height={{ base: "400px", sm: "300px" }}
           alt="Last of Us Map"
           borderRadius="md"

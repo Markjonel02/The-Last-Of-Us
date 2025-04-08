@@ -1,4 +1,3 @@
-
 import {
   Box,
   Flex,
@@ -32,73 +31,79 @@ const faqs = [
     answer:
       "No, The Last of Us Part I and Part II do not have multiplayer modes.",
   },
+  {
+    question: "Is there DLC?",
+    answer:
+      "No, there is currently no DLC available for The Last of Us Part I or Part II. Left Behind, which was initially released as DLC for the original The Last of Us game in 2013, is included with Part I.",
+  },
+  {
+    question: "how dificult is The Last of Us?",
+    answer:
+      "The Last of Us Part I and Part II offer a range of difficulty options for players depending on their preferences. Difficulty modes range from Very Light, with a focus on exploration and story, all the way up to our signature Grounded difficulty, for players that want a hyper realistic, intensely challenging experience.Our accessibility options also include a host of custom modifiers that allow players to customise to their playstyle and skill level.",
+  },
 ];
-
 const Faqs = () => {
   return (
-    <Box position="relative" minHeight="100vh" bg="black" overflow="hidden">
-      {/* Right-side background image */}
-      <Box
-        position="absolute"
-        top="0"
-        right="0"
-        width={{ base: "100%", md: "60%" }}
-        height="100%"
-        backgroundImage={`url(${bg})`}
-        backgroundRepeat="no-repeat"
-        backgroundPosition="center"
-        backgroundSize="contain"
-        zIndex="0"
-        display={{ base: "none", sm: "block" }}
-      />
+    <Box bg="black" overflow="hidden">
+      {/* Mobile Top Background Image */}
 
-      {/* FAQ Content */}
-      <Flex
-        direction="column"
-        px={{ base: 4, md: 8 }}
-        py={10}
-        maxWidth={{ base: "100%", md: "40%" }}
-        position="relative"
-        zIndex="1"
-        color="white"
-      >
-        <Text
-          fontSize={{ base: "3xl", md: "5xl" }}
-          letterSpacing={1}
-          fontWeight="bold"
-          mb={6}
+      <Flex direction={{ base: "column", md: "row" }} minHeight="100vh">
+        {/* FAQ Section (left on desktop, below on mobile) */}
+        <Flex
+          direction="column"
+          px={{ base: 4, md: 8 }}
+          py={10}
+          flex={{ base: "0 0 auto", md: "0 0 40%" }}
+          zIndex="1"
+          color="white"
         >
-          FAQs
-        </Text>
-        <Accordion allowMultiple>
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} border="none">
-              <AccordionButton
-                bg="gray.700"
-                color="white"
-                p={4}
-                mb={2}
-                borderRadius="md"
-                _hover={{ bg: "gray.600" }}
-                _expanded={{ bg: "gray.500" }}
-              >
-                <Box flex="1" textAlign="left" letterSpacing={2}>
-                  {faq.question}
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel
-                pb={4}
-                bg="gray.800"
-                fontSize="0.9em"
-                fontWeight="400"
-                letterSpacing={1}
-              >
-                {faq.answer}
-              </AccordionPanel>
-            </AccordionItem>
-          ))}
-        </Accordion>
+          <Text
+            fontSize={{ base: "3xl", md: "5xl" }}
+            letterSpacing={1}
+            fontWeight="bold"
+            mb={6}
+          >
+            FAQs
+          </Text>
+          <Accordion allowMultiple>
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} border="none">
+                <AccordionButton
+                  bg="gray.700"
+                  color="white"
+                  p={4}
+                  _hover={{ bg: "gray.600" }}
+                  _expanded={{ bg: "gray.500" }}
+                >
+                  <Box flex="1" textAlign="left" letterSpacing={2}>
+                    {faq.question}
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel
+                  pb={4}
+                  bg="gray.800"
+                  fontSize="0.9em"
+                  fontWeight="400"
+                  letterSpacing={1}
+                >
+                  {faq.answer}
+                </AccordionPanel>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Flex>
+
+        {/* Desktop Right Background Image */}
+        <Box
+          display={{ base: "block", md: "block" }}
+          width={{ base: "100%", md: "100%" }}
+          minHeight={{ base: "300px", md: "100vh" }}
+          backgroundImage={`url(${bg})`}
+          backgroundRepeat="no-repeat"
+          backgroundPosition="center"
+          backgroundSize="contain"
+        />
       </Flex>
     </Box>
   );
