@@ -14,7 +14,7 @@ import "swiper/css/free-mode";
 
 import Tlous1 from "./Tlous_tabs/Tlous1";
 import Tlous2 from "./Tlous_tabs/Tlous2";
-import Tlous3 from "./Tlous_tabs/Tlous3";
+import Tlous3 from "./Tlous_tabs/TLous3";
 import Tlous4 from "./Tlous_tabs/Tlous4";
 import Tlous5 from "./Tlous_tabs/Tlous5";
 
