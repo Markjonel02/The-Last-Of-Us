@@ -1,9 +1,5 @@
-import React from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
-import { discoverData } from "./utils/Discoverdata";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation } from "swiper/modules";
-import bg from "../assets/img/background Tlous.png";
+import { Box, Text } from "@chakra-ui/react";
+
 import Tlous from "../assets/img/tlous Community.png";
 
 const Community = () => {

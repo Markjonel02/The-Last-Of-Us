@@ -1,8 +1,7 @@
-import React from "react";
 import { vidData } from "./utils/Viddata";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { data } from "framer-motion/client";
+
 import { Navigation } from "swiper/modules";
 
 const Building = () => {
