@@ -59,6 +59,7 @@ const Overview = () => {
           modules={[FreeMode]}
           freeMode={{ enabled: true }}
           breakpoints={{
+            360: { slidesPerView: 1, spaceBetween: 5 },
             390: { slidesPerView: 1.9, spaceBetween: 5 },
             480: { slidesPerView: 2.8, spaceBetween: 5 },
             760: { slidesPerView: 3.5, spaceBetween: 5 },
@@ -72,9 +73,8 @@ const Overview = () => {
                 /*            width={{ base: "220px", md: "220px", lg: "300px" }} */
                 width="100%"
                 height={{
-                  base: "120px",
+                  base: "100px",
                   md: "150px",
-                  lg: "180px",
                 }}
                 className={`tab-item ${activeIndex === index ? "active" : ""}`}
                 onClick={() => setActiveIndex(index)}

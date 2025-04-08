@@ -37,10 +37,10 @@ const Tlous4 = ({ isActive }) => {
           {/* Additional text below */}
           <Text
             as="h1"
-            fontSize={{ base: "1.6em", md: "3em", lg: "4em", xl: "5.8em" }}
+            fontSize={{ base: "1em", md: "2em", lg: "3em", xl: "5.8em" }}
             fontWeight="bold"
             letterSpacing={3}
-            lineHeight="1.2"
+            lineHeight={{ base: "none", md: 1.2 }}
             whiteSpace={{
               base: "none",
               md: "none",
@@ -63,18 +63,23 @@ const Tlous4 = ({ isActive }) => {
             fontWeight="medium"
             mt="10px"
             letterSpacing={2}
-            whiteSpace={{ base: "none", md: "none" }}
+            noOfLines={{ base: 1, md: 2, lg: 3 }}
+            whiteSpace={{ base: "none", md: "none", xl: "none" }}
           >
             {firstTab.txt.substring(0, 97)}
             {"\n"}
             {firstTab.txt.substring(97)}
           </Text>
           <Button
-            colorScheme="black"
-            variant="solid"
-            size="lg"
-            mt={5}
-            letterSpacing={2}
+            colorScheme="black" // Styling base color scheme
+            variant="outline" // Style of the button
+            size={{ base: "sm", md: "lg" }}
+            mt={5} // Margin top
+            letterSpacing={2} // Adjust letter spacing
+            _hover={{
+              bg: "white", // Background turns white on hover
+              color: "black", // Text color turns black on hover
+            }}
           >
             Find out more
           </Button>

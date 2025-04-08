@@ -38,9 +38,9 @@ const Tlous5 = ({ isActive }) => {
           <Text
             as="h1"
             fontSize={{
-              base: "1.6em",
-              md: "3em",
-              lg: "4em",
+              base: "1em",
+              md: "2em",
+              lg: "3em",
               xl: "5em",
             }}
             fontWeight="bold"
@@ -64,22 +64,26 @@ const Tlous5 = ({ isActive }) => {
           {/* Additional text below */}
           <Text
             as="p"
-            fontSize={{ base: "15px", md: "1em", lg: "1.5em" }}
-            fontWeight="medium"
-            mt="10px"
+            fontSize={{ base: "12px", md: "1em" }}
+            fontWeight="normal"
             letterSpacing={2}
             whiteSpace={{ base: "none", md: "none" }}
+            noOfLines={{ base: 1, md: 2, lg: "none" }}
           >
             {firstTab.txt.substring(0, 97)}
             {"\n"}
             {firstTab.txt.substring(97)}
           </Text>
           <Button
-            colorScheme="black"
-            variant="solid"
-            size="lg"
-            mt={5}
-            letterSpacing={2}
+            colorScheme="black" // Styling base color scheme
+            variant="outline" // Style of the button
+            size={{ base: "sm", md: "lg" }}
+            mt={5} // Margin top
+            letterSpacing={2} // Adjust letter spacing
+            _hover={{
+              bg: "white", // Background turns white on hover
+              color: "black", // Text color turns black on hover
+            }}
           >
             Find out more
           </Button>

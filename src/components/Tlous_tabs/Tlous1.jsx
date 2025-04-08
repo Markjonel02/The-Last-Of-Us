@@ -58,7 +58,6 @@ const Tlous1 = ({ isActive }) => {
           </Text>
         </MotionBox>
       )}
-      <Text>{firstTab.title}</Text>
     </Box>
   );
 };

@@ -1,11 +1,11 @@
-import { Box, Flex, Text,  } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 import imgbg from "../assets/img/TLOUS BG.png";
 
 const Story = () => {
   return (
     <Flex
-      h="full"
+      h="100vh"
       w="full"
       p="4"
       flexDirection="column"
@@ -33,7 +33,7 @@ const Story = () => {
           fontSize={["2em", "4em", "5em"]}
           fontWeight="bold"
           color="#f2f2f2"
-          marginTop={10}
+          marginTop={5}
           letterSpacing={1}
         >
           Story
@@ -52,7 +52,7 @@ const Story = () => {
         overflow="hidden"
       >
         <Text
-          fontSize={{ base: "12px", lg: "md", xl: "1.3em" }}
+          fontSize={{ base: "12px", lg: "md", xl: "1em" }}
           letterSpacing={2}
           color="#f2f2f2"
           whiteSpace={{ base: "normal", md: "wrap", xl: "normal" }}
