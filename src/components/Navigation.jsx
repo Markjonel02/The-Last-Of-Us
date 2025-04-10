@@ -67,7 +67,6 @@ const NavBar = () => {
       zIndex="100"
       justifyContent="space-between"
       transition="background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out"
-      bg={isScrolling ? "rgba(54, 54, 54, 0.2)" : "transparent"}
       backdropFilter={isScrolling ? "blur(10px)" : "none"}
       boxShadow={isScrolling ? "0 4px 10px rgba(0, 0, 0, 0.1)" : "none"}
       sx={{
@@ -81,7 +80,7 @@ const NavBar = () => {
       {/* Logo */}
       <Box left="6">
         <Text
-          color={isScrolling ? "whiteAlpha.900" : "#1c1a19ff"}
+          color="#1c1a19ff"
           fontFamily="HeadlinerNo45"
           fontWeight={900}
           fontSize={["2xl", "3xl", "4xl", "5xl"]}
@@ -132,7 +131,7 @@ const MobileMenu = () => {
                     <Text
                       flex="1"
                       textAlign="left"
-                      color={isScrolling ? "whiteAlpha.900" : "#1c1a19ff"}
+                      color="#1c1a19ff"
                       fontSize="lg"
                       letterSpacing="2px"
                       fontWeight={800}
@@ -216,8 +215,8 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
       fontSize="md"
       letterSpacing={2}
       transition="colors 0.3s, transform 0.2s"
-      bg={selected === tab && !isScrolling ? "#1c1a19ff" : "transparent"}
-      color={!isScrolling || selected === tab ? "Black" : "whiteAlpha.900"}
+      bg={selected === tab && "#1c1a19ff"}
+      color={selected === tab && "Black"}
       _hover={{
         bg: selected !== tab && !isScrolling ? "#1c1a19ff" : undefined,
         color: "gray.300",

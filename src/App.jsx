@@ -1,6 +1,6 @@
 import { lazy, Suspense, memo } from "react";
 import { Box, Text } from "@chakra-ui/react";
-
+import BacktoTop from "./components/BacktoTop";
 const MainComponent = lazy(() => import("./components/MainComponent"));
 const Story = lazy(() => import("./components/Story"));
 const Navigation = lazy(() => import("./components/Navigation"));
@@ -13,6 +13,7 @@ const Building = lazy(() => import("./components/Building"));
 const Home = lazy(() => import("./components/Home"));
 const Faq = lazy(() => import("./components/Faqs"));
 const Footer = lazy(() => import("./components/Footer"));
+
 const LoadingPlaceholder = () => (
   <Box className="loading-container">
     <Box className="loading-shimmer">
@@ -40,7 +41,6 @@ const App = () => {
     <Suspense fallback={<LoadingPlaceholder />}>
       <MainComponent>
         <header>
-          {" "}
           <Navigation />
         </header>
         <Overview />
@@ -52,9 +52,8 @@ const App = () => {
         <Building />
         <Community />
         <Faq /> <Footer />
+        <BacktoTop />
       </MainComponent>
-
-      <footer></footer>
     </Suspense>
   );
 };
