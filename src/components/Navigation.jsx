@@ -271,10 +271,10 @@ const Content = ({ selected, dir }) => (
 
 const TABS = [
   {
-    title: "Products",
+    title: "Games",
     Component: () => (
       <Text fontFamily="HeadlinerNo45" letterSpacing="2px">
-        Product Content
+        Game
       </Text>
     ),
   },
