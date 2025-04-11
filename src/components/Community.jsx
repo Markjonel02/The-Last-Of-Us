@@ -22,6 +22,8 @@ const Community = () => {
         fontSize={{ base: "3xl", md: "7xl" }}
         fontWeight="bold"
         letterSpacing={2}
+        data-aos="fade-right"
+        data-aos-delay="150"
       >
         The Last of Us Community
       </Text>

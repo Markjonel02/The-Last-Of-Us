@@ -18,6 +18,8 @@ const Home = () => {
           fontWeight="bold"
           color="white"
           letterSpacing="wider"
+          data-aos="fade-up"
+          data-aos-delay="100"
         >
           The Last of Us
         </Text>
@@ -26,6 +28,8 @@ const Home = () => {
           fontWeight="bold"
           color="#bd5735ff"
           letterSpacing="wider"
+          data-aos="fade-up"
+          data-aos-delay="150"
         >
           Remastered II
         </Text>
@@ -53,7 +57,7 @@ const Home = () => {
         width={"80%"}
         textAlign="left"
       >
-        <Flex gap={4} mt={4}>
+        <Flex gap={4} mt={4} data-aos="fade-up" data-aos-delay="200">
           <Button
             color="black"
             fontWeight="bold"
