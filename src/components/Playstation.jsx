@@ -5,42 +5,56 @@ import { Box, Flex, Text, Image } from "@chakra-ui/react";
 
 const Playstation = () => {
   return (
-    <Flex
-      position="relative"
-      height="100vh" // Makes the section fill the viewport height
-      justifyContent="center" // Centers content horizontally
-      alignItems="center" // Centers content vertically
-      overflow="hidden" // Prevents overflow of elements
-    >
-      {/* Background Image with Overlay */}
+    <>
+      {/* Main Flex Container */}
+      <Flex
+        position="relative"
+        height="100vh" // Makes the section fill the viewport height
+        justifyContent="center" // Centers content horizontally
+        alignItems="center" // Centers content vertically
+        overflow="hidden" // Prevents overflow of elements
+        direction="column" // Stacks content vertically
+      >
+        {/* Background Image with Overlay */}
+        <Box
+          bg={`url(${bg})`}
+          bgSize="cover"
+          bgRepeat="no-repeat"
+          bgPosition="cover"
+          position="absolute"
+          top={0}
+          width="100%"
+          height="500px"
+          zIndex={-1} // Positions background behind content
+        />
+
+        {/* PlayStation Image Absolutely Positioned */}
+        <Image
+          src={pl}
+          alt="PlayStation 5 and DualSense Controller"
+          position="relative"
+          top={{ base: "0", md: "20%" }} // Keeps image in default flow
+          width={{ base: "40%", md: "70%" }} // Responsive size for the image
+          height="auto"
+          mb={4} // Adds spacing below the image
+        />
+
+        {/* Descriptive Text */}
+      </Flex>
+
+      {/* Second Box Below the PlayStation Section */}
       <Box
-        bg={`url(${bg})`}
-        bgSize="cover"
-        bgRepeat="no-repeat"
-        bgPosition="contain"
-        position="absolute"
-        top={0}
-        width="100%"
-        height="500px"
-      />
-
-      {/* PlayStation Image Absolutely Positioned */}
-      <Image
-        src={pl}
-        alt="PlayStation 5 and DualSense Controller"
-        position="absolute" // Makes the image positioned absolutely
-        top={{ base: "20%", md: "48%" }} // Offset from the top
-        left={{ base: "10%", md: "15%" }} // Offset from the left
-        width={{ base: "40%", md: "70%" }} // Responsive size for the image
-        height="auto"
-        zIndex={1} // Ensures it appears above the background
-      />
-
-      {/* Descriptive Text */}
-      <Box>
-        <Text as="h1">BOBO</Text>
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        textAlign="center"
+      >
+        <Text fontSize={{ base: "1em", md: "1.25em" }} color="blackAlpha.600">
+          Explore the award-winning series and experience unforgettable moments
+          with Joel and Ellie. Discover more on PlayStation!
+        </Text>
       </Box>
-    </Flex>
+    </>
   );
 };
 
