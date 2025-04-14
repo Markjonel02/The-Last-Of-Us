@@ -18,7 +18,7 @@ const Playstation = () => {
         {/* Background Image with Overlay */}
         <Box
           bg={`url(${bg})`}
-          bgSize="cover"
+          bgSize={{ base: "contain", md: "contain", lg: "cover" }}
           bgRepeat="no-repeat"
           bgPosition="cover"
           position="absolute"
@@ -33,10 +33,9 @@ const Playstation = () => {
           src={pl}
           alt="PlayStation 5 and DualSense Controller"
           position="relative"
-          top={{ base: "0", md: "20%" }} // Keeps image in default flow
-          width={{ base: "40%", md: "70%" }} // Responsive size for the image
+          top={{ base: "-20%", md: "0", lg: "20%" }} // Keeps image in default flow
+          width={{ base: "80%", md: "70%" }} // Responsive size for the image
           height="auto"
-          mb={4} // Adds spacing below the image
         />
 
         {/* Descriptive Text */}
@@ -48,10 +47,25 @@ const Playstation = () => {
         justifyContent="center"
         alignItems="center"
         textAlign="center"
+        flexDirection="column"
+        mb={20}
       >
-        <Text fontSize={{ base: "1em", md: "1.25em" }} color="blackAlpha.600">
-          Explore the award-winning series and experience unforgettable moments
-          with Joel and Ellie. Discover more on PlayStation!
+        <Text fontSize={{ base: "2em", md: "2.5em" }}>
+          Their story is your story on PlayStation®5
+        </Text>
+        <Text
+          fontSize={{ base: "1em", md: "1.25em" }}
+          color="blackAlpha.600"
+          w="80%"
+          letterSpacing={1}
+        >
+          Enhanced by PS5, Part I is rebuilt from the ground up with advanced
+          visual fidelity, while Part II Remastered has increased texture
+          resolution, increased Level&#x2010;of&#x2010;Detail distances,
+          improved shadow quality and animation sampling rate. Both games make
+          full use of the DualSense® wireless controller to make weapons feel
+          distinct and convey an increased sense of presence in your
+          surroundings.
         </Text>
       </Box>
     </>

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, createContext, useContext } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Box,
   Button,
@@ -20,7 +20,6 @@ import {
   AccordionIcon,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiMenu } from "react-icons/fi";
 import blood from "../assets/img/blood.png";
 
@@ -107,7 +106,6 @@ const NavBar = () => {
 
 const MobileMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isScrolling = useContext(ScrollContext);
 
   return (
     <>
@@ -155,21 +153,32 @@ const MobileMenu = () => {
 };
 
 const TabsElement = () => {
-  const [selected, setSelected] = useState(null);
+  const [hovered, setHovered] = useState(null);
+  const [locked, setLocked] = useState(null);
   const [dir, setDir] = useState(null);
 
-  const handleSetSelected = (val) => {
-    if (typeof selected === "number" && typeof val === "number") {
-      setDir(selected > val ? "r" : "l");
-    } else if (val === null) {
-      setDir(null);
+  const handleHover = (val) => {
+    if (locked === null) {
+      setHovered(val);
     }
-    setSelected(val);
+  };
+
+  const handleClick = (val) => {
+    if (locked === val) {
+      setLocked(null);
+      setHovered(null);
+    } else {
+      setDir(locked > val ? "r" : "l");
+      setLocked(val);
+      setHovered(val);
+    }
   };
 
   return (
     <Flex
-      onMouseLeave={() => handleSetSelected(null)}
+      onMouseLeave={() => {
+        if (locked === null) setHovered(null);
+      }}
       position="relative"
       height="fit-content"
       alignItems="center"
@@ -180,8 +189,9 @@ const TabsElement = () => {
         {TABS.map((t) => (
           <Tab
             key={t.id}
-            handleSetSelected={handleSetSelected}
-            selected={selected}
+            handleHover={handleHover}
+            handleClick={handleClick}
+            selected={hovered || locked}
             tab={t.id}
           >
             {t.title}
@@ -190,20 +200,23 @@ const TabsElement = () => {
       </Flex>
 
       <AnimatePresence>
-        {selected && <Content dir={dir} selected={selected} />}
+        {(hovered || locked) && (
+          <Content selected={hovered || locked} dir={dir} />
+        )}
       </AnimatePresence>
     </Flex>
   );
 };
 
-const Tab = ({ children, tab, handleSetSelected, selected }) => {
+const Tab = ({ children, tab, handleHover, handleClick, selected }) => {
   const isScrolling = useContext(ScrollContext);
+  const isActive = selected === tab;
 
   return (
     <Button
       id={`shift-tab-${tab}`}
-      onMouseEnter={() => handleSetSelected(tab)}
-      onClick={() => handleSetSelected(tab)}
+      onMouseEnter={() => handleHover(tab)}
+      onClick={() => handleClick(tab)}
       variant="none"
       role="group"
       as={Flex}
@@ -215,10 +228,10 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
       fontSize="md"
       letterSpacing={2}
       transition="colors 0.3s, transform 0.2s"
-      bg={selected === tab && "#1c1a19ff"}
-      color={selected === tab && "Black"}
+      bg={isActive ? "#1c1a19ff" : "transparent"}
+      color={isActive ? "white" : "black"}
       _hover={{
-        bg: selected !== tab && !isScrolling ? "#1c1a19ff" : undefined,
+        bg: !isActive && !isScrolling ? "#1c1a19ff" : undefined,
         color: "gray.300",
       }}
     >
@@ -226,7 +239,7 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
       <FiChevronDown
         style={{
           transition: "transform 0.2s",
-          transform: selected === tab ? "rotate(180deg)" : "rotate(0deg)",
+          transform: isActive ? "rotate(180deg)" : "rotate(0deg)",
         }}
       />
     </Button>
@@ -247,6 +260,7 @@ const Content = ({ selected, dir }) => (
       borderRadius: "lg",
       border: "1px solid gray.600",
       padding: "16px",
+      zIndex: 1000,
     }}
   >
     {TABS.map(
@@ -273,35 +287,37 @@ const TABS = [
   {
     title: "Games",
     Component: () => (
-      <Text fontFamily="HeadlinerNo45" letterSpacing="2px">
-        Game
-      </Text>
+      <Flex direction="column" gap={2}>
+        <Text>Game 1</Text>
+        <Text>Game 2</Text>
+      </Flex>
     ),
   },
   {
     title: "Pricing",
     Component: () => (
-      <Text fontFamily="HeadlinerNo45" letterSpacing="2px">
-        Pricing Content
-      </Text>
+      <Flex direction="column" gap={2}>
+        <Text>Standard</Text>
+        <Text>Premium</Text>
+      </Flex>
     ),
   },
-
   {
     title: "Map",
     Component: () => (
-      <Text fontFamily="HeadlinerNo45" letterSpacing="2px">
-        Maps
-      </Text>
+      <Flex direction="column" gap={2}>
+        <Text>North Zone</Text>
+        <Text>South Zone</Text>
+      </Flex>
     ),
   },
-
   {
     title: "Characters",
     Component: () => (
-      <Text fontFamily="HeadlinerNo45" letterSpacing="2px">
-        Characters
-      </Text>
+      <Flex direction="column" gap={2}>
+        <Text>Joel</Text>
+        <Text>Ellie</Text>
+      </Flex>
     ),
   },
 ].map((n, idx) => ({ ...n, id: idx + 1 }));
