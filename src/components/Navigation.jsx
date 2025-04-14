@@ -21,6 +21,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FiChevronDown, FiMenu } from "react-icons/fi";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import blood from "../assets/img/blood.png";
 
 // Create Scroll Context
@@ -194,7 +195,7 @@ const TabsElement = () => {
             selected={hovered || locked}
             tab={t.id}
           >
-            {t.title}
+            <Link to={t.path}>{t.title}</Link> {/* Use Link for navigation */}
           </Tab>
         ))}
       </Flex>
@@ -286,6 +287,7 @@ const Content = ({ selected, dir }) => (
 const TABS = [
   {
     title: "Games",
+    path: "/games", // Define path for the Games tab
     Component: () => (
       <Flex direction="column" gap={2}>
         <Text>Game 1</Text>
@@ -295,6 +297,7 @@ const TABS = [
   },
   {
     title: "Pricing",
+    path: "/pricing", // Define path for Pricing
     Component: () => (
       <Flex direction="column" gap={2}>
         <Text>Standard</Text>
@@ -304,6 +307,7 @@ const TABS = [
   },
   {
     title: "Map",
+    path: "/map", // Define path for Map
     Component: () => (
       <Flex direction="column" gap={2}>
         <Text>North Zone</Text>
@@ -313,6 +317,8 @@ const TABS = [
   },
   {
     title: "Characters",
+    path: "/characters", // Define path for Characters
+
     Component: () => (
       <Flex direction="column" gap={2}>
         <Text>Joel</Text>
