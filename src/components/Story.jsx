@@ -15,6 +15,7 @@ const Story = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       overflowX="hidden"
+      id="story"
     >
       {/* Dark Overlay */}
       <Box

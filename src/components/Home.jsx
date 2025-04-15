@@ -13,9 +13,7 @@ import Community from "./Community";
 const Home = () => {
   return (
     <>
-      <Box id="overview">
-        <Overview />
-      </Box>
+      <Overview />
 
       <Box position="relative">
         {/* Floating Text Section - Fixed to the Left */}
@@ -26,6 +24,7 @@ const Home = () => {
           transform="translateY(-50%)"
           zIndex="20"
           textAlign="left"
+          
         >
           <Text
             fontSize={{ base: "2em", md: "4em", lg: "8em" }}

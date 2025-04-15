@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 
 const Building = () => {
   return (
-    <Box bg="black" p={4}>
+    <Box bg="black" p={4} id="building">
       <Text
         color="white"
         fontSize={{ base: "2em", md: "em" }}

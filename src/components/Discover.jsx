@@ -18,6 +18,7 @@ const Discover = () => {
       alignItems="center"
       w="100%"
       h="100vh"
+      id="discover"
     >
       {/* Title */}
       <Text

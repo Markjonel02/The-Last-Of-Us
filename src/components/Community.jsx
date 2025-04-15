@@ -17,6 +17,7 @@ const Community = () => {
       textAlign="left"
       color="white"
       px={12}
+      id="community"
     >
       <Text
         fontSize={{ base: "3xl", md: "7xl" }}

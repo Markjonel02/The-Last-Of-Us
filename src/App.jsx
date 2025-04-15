@@ -1,7 +1,7 @@
 import { lazy, Suspense, memo, useEffect } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import BacktoTop from "./components/BacktoTop";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 
 const Navigation = lazy(() => import("./components/Navigation"));
 
@@ -9,7 +9,7 @@ const Home = lazy(() => import("./components/Home"));
 const Faq = lazy(() => import("./components/Faqs"));
 const Footer = lazy(() => import("./components/Footer"));
 const Pricing = lazy(() => import("./routes/Pricing"));
-
+const Nopage = lazy(() => import("./routes/Horror404"));
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 
@@ -34,6 +34,16 @@ const LoadingPlaceholder = () => (
     </Box>
   </Box>
 );
+const Layout = () => (
+  <>
+    <Navigation />
+    <Suspense fallback={<LoadingPlaceholder />}>
+      <Outlet />
+    </Suspense>
+    <Footer />
+    <BacktoTop />
+  </>
+);
 
 const App = () => {
   useEffect(() => {
@@ -45,14 +55,16 @@ const App = () => {
   return (
     <Suspense fallback={<LoadingPlaceholder />}>
       <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<Home />} />
+        {/* Shared layout */}
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/faq" element={<Faq />} />
         </Route>
+
+        {/* Catch-all for 404 — no layout */}
+        <Route path="*" element={<Nopage />} />
       </Routes>
-      <Footer />
-      <BacktoTop />
     </Suspense>
   );
 };

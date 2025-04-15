@@ -293,20 +293,106 @@ const TABS = [
 
     Component: () => (
       <Flex
-        direction="column"
-        gap={2}
+        direction={{ base: "column", md: "row" }}
+        gap={4}
         bg="rgba(0, 0, 0, 0.8)"
         borderRadius="10px"
         boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
         p={4}
         backdropFilter="blur(10px)"
+        letterSpacing={1}
       >
-        <Link mx={2} to="#overview">
-          Overview
-        </Link>
-        <Link mx={2} to="/">
-          Game 2
-        </Link>
+        {/* Left Section with 4 Links */}
+        <Flex direction="column" flex="1" gap={2}>
+          <a
+            href="#overview"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Overview
+          </a>
+          <a
+            href="#story"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Story
+          </a>
+          <a
+            href="#discover"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Discover
+          </a>
+          <a
+            href="#Character"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Character Overview
+          </a>
+        </Flex>
+
+        {/* Right Section with 3 Links */}
+        <Flex direction="column" flex="1" gap={2}>
+          <a
+            href="#building"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Building
+          </a>
+          <a
+            href="#community"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Community
+          </a>
+          <a
+            href="#faq"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            FAQ&apos;s
+          </a>
+        </Flex>
       </Flex>
     ),
   },
@@ -341,7 +427,7 @@ const TABS = [
         p={4}
         backdropFilter="blur(10px)"
       >
-        <Link mx={2} to="">
+        <Link mx={2} to="/">
           Game 1
         </Link>
         <Link mx={2}>Game 2</Link>
@@ -350,20 +436,98 @@ const TABS = [
   },
   {
     title: "Characters",
-    path: "/characters", // Define path for Characters
+    path: "/ss", // Define path for Characters
 
     Component: () => (
       <Flex
-        direction="column"
-        gap={2}
+        direction={{ base: "column", md: "row" }}
+        gap={4}
         bg="rgba(0, 0, 0, 0.8)"
         borderRadius="10px"
         boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
         p={4}
         backdropFilter="blur(10px)"
+        letterSpacing={1}
       >
-        <Text mx={2}>Game 1</Text>
-        <Text mx={2}>Game 2</Text>
+        {/* Left Section with 4 Links */}
+        <Flex direction="column" flex="1" gap={2}>
+          <Link
+            to="/sample"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            all
+          </Link>
+          <a
+            href="#overview"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            ElliE
+          </a>
+          <a
+            href="#story"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Joel Miller
+          </a>
+        </Flex>
+
+        {/* Right Section with 3 Links */}
+        <Flex direction="column" flex="1" gap={2}>
+          <a
+            href="#discover"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            abby
+          </a>
+          <a
+            href="#Character"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Tommy miller
+          </a>
+          <a
+            href="#building"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Infecters
+          </a>
+        </Flex>
       </Flex>
     ),
   },

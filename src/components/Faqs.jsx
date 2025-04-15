@@ -44,7 +44,7 @@ const faqs = [
 ];
 const Faqs = () => {
   return (
-    <Box bg="black" overflow="hidden">
+    <Box bg="black" overflow="hidden" id="faq">
       {/* Mobile Top Background Image */}
 
       <Flex direction={{ base: "column", md: "row" }} minHeight="100vh">

@@ -30,6 +30,7 @@ const Overview = () => {
       bg="#000000"
       index={activeIndex}
       onChange={setActiveIndex}
+      id="overview"
     >
       <TabPanels>
         {components.map((Component, index) => (

@@ -70,6 +70,7 @@ const Characters = () => {
       position={"relative"}
       direction={{ base: "column", md: "row", sm: "column" }}
       backgroundColor={"#0f0f0fff"}
+      id="Character"
     >
       <Box
         backgroundImage={`url(${bg})`}
