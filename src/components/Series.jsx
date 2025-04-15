@@ -55,10 +55,11 @@ const Series = () => {
           objectFit="contain"
           alt="The Last of Us Banner"
           borderRadius="12px"
-          transition="all ease 0.3"
+          transition="all ease 0.2s"
           sx={{
             _hover: {
               transform: "scale(1.05)",
+              animationDelay: "0.2s",
             },
           }}
         />

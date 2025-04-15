@@ -9,7 +9,7 @@ const Building = () => {
     <Box bg="black" p={4}>
       <Text
         color="white"
-        fontSize={{ base: "2em", md: "5em" }}
+        fontSize={{ base: "2em", md: "em" }}
         textAlign="center"
       >
         Building The last of us
@@ -18,7 +18,7 @@ const Building = () => {
         color="white"
         textAlign="center"
         letterSpacing={1}
-        fontSize={{ base: "1em", md: "0.9em" }}
+        fontSize={{ base: "0.9em", md: "1.3em" }}
         whiteSpace="pre-line"
         mb={20}
       >

@@ -50,13 +50,14 @@ const Playstation = () => {
         flexDirection="column"
         mb={20}
       >
-        <Text fontSize={{ base: "2em", md: "2.5em" }}>
+        <Text fontSize={{ base: "2em", md: "2.3em" }}>
           Their story is your story on PlayStation®5
         </Text>
         <Text
-          fontSize={{ base: "1em", md: "1.25em" }}
+          fontSize={{ base: "0.9em", md: "1em" }}
           color="blackAlpha.600"
           w="80%"
+          textAlign={"left"}
           letterSpacing={1}
         >
           Enhanced by PS5, Part I is rebuilt from the ground up with advanced

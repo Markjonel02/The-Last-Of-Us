@@ -21,7 +21,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FiChevronDown, FiMenu } from "react-icons/fi";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link, Outlet } from "react-router-dom"; // Import Link from react-router-dom
 import blood from "../assets/img/blood.png";
 
 // Create Scroll Context
@@ -46,7 +46,7 @@ const ScrollProvider = ({ children }) => {
 export default function HoverNavbar() {
   return (
     <ScrollProvider>
-      <NavBar />
+      <NavBar /> <Outlet />
     </ScrollProvider>
   );
 }
@@ -68,7 +68,8 @@ const NavBar = () => {
       justifyContent="space-between"
       transition="background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out"
       backdropFilter={isScrolling ? "blur(10px)" : "none"}
-      boxShadow={isScrolling ? "0 4px 10px rgba(0, 0, 0, 0.1)" : "none"}
+      bgColor={!isScrolling ? "none" : "white"}
+      boxShadow={isScrolling ? "0 4px 10px rgba(44, 14, 14, 0.1)" : "none"}
       sx={{
         backgroundImage: isScrolling ? "none" : `url(${blood})`,
         backgroundPosition: "bottom",
@@ -262,6 +263,7 @@ const Content = ({ selected, dir }) => (
       border: "1px solid gray.600",
       padding: "16px",
       zIndex: 1000,
+      bg: "black",
     }}
   >
     {TABS.map(
@@ -275,7 +277,7 @@ const Content = ({ selected, dir }) => (
             }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            style={{ color: "white", fontFamily: "Helvetica Neue" }}
+            style={{ color: "white" }}
           >
             <t.Component />
           </motion.div>
@@ -287,11 +289,24 @@ const Content = ({ selected, dir }) => (
 const TABS = [
   {
     title: "Games",
-    path: "/games", // Define path for the Games tab
+    path: "/",
+
     Component: () => (
-      <Flex direction="column" gap={2}>
-        <Text>Game 1</Text>
-        <Text>Game 2</Text>
+      <Flex
+        direction="column"
+        gap={2}
+        bg="rgba(0, 0, 0, 0.8)"
+        borderRadius="10px"
+        boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
+        p={4}
+        backdropFilter="blur(10px)"
+      >
+        <Link mx={2} to="#overview">
+          Overview
+        </Link>
+        <Link mx={2} to="/">
+          Game 2
+        </Link>
       </Flex>
     ),
   },
@@ -299,9 +314,17 @@ const TABS = [
     title: "Pricing",
     path: "/pricing", // Define path for Pricing
     Component: () => (
-      <Flex direction="column" gap={2}>
-        <Text>Standard</Text>
-        <Text>Premium</Text>
+      <Flex
+        direction="column"
+        gap={2}
+        bg="rgba(0, 0, 0, 0.8)"
+        borderRadius="10px"
+        boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
+        p={4}
+        backdropFilter="blur(10px)"
+      >
+        <Text mx={2}>Game 1</Text>
+        <Text mx={2}>Game 2</Text>
       </Flex>
     ),
   },
@@ -309,9 +332,19 @@ const TABS = [
     title: "Map",
     path: "/map", // Define path for Map
     Component: () => (
-      <Flex direction="column" gap={2}>
-        <Text>North Zone</Text>
-        <Text>South Zone</Text>
+      <Flex
+        direction="column"
+        gap={2}
+        bg="rgba(0, 0, 0, 0.8)"
+        borderRadius="10px"
+        boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
+        p={4}
+        backdropFilter="blur(10px)"
+      >
+        <Link mx={2} to="">
+          Game 1
+        </Link>
+        <Link mx={2}>Game 2</Link>
       </Flex>
     ),
   },
@@ -320,9 +353,17 @@ const TABS = [
     path: "/characters", // Define path for Characters
 
     Component: () => (
-      <Flex direction="column" gap={2}>
-        <Text>Joel</Text>
-        <Text>Ellie</Text>
+      <Flex
+        direction="column"
+        gap={2}
+        bg="rgba(0, 0, 0, 0.8)"
+        borderRadius="10px"
+        boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
+        p={4}
+        backdropFilter="blur(10px)"
+      >
+        <Text mx={2}>Game 1</Text>
+        <Text mx={2}>Game 2</Text>
       </Flex>
     ),
   },
