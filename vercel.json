@@ -3,6 +3,12 @@
     {
       "source": "/(.*)",
       "destination": "/"
-    }
+    },
+{
+  "buildCommand": "git lfs install && git lfs pull && npm run build"
+}
+
   ]
 }
+
+
