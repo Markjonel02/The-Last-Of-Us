@@ -93,6 +93,7 @@ const Overview = () => {
                   borderRadius="inherit"
                   w="100%"
                   h="100%"
+                  loading="lazy"
                   objectFit="cover"
                   className={`tab-image ${
                     activeIndex === index ? "active" : ""
