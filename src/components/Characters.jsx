@@ -126,6 +126,8 @@ const Characters = () => {
                 _selected={{
                   bg: "black",
                   color: "white",
+                  opacity: 0.5, // Ensure full visibility when selected
+                  transition: "opacity 0.5s ease, background-color 0.3s ease",
                 }}
                 _hover={{
                   bg: "white",
@@ -140,8 +142,10 @@ const Characters = () => {
                 border="2px solid white"
                 color="white"
                 _selected={{
-                  bg: "white",
-                  color: "black",
+                  bg: "black",
+                  opacity: 0.5, // Ensure full visibility when selected
+                  transition: "opacity 0.5s ease, background-color 0.3s ease",
+                  color: "white",
                 }}
                 _hover={{
                   bg: "white",
