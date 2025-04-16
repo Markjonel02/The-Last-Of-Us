@@ -2,6 +2,7 @@ import { lazy, Suspense, memo, useEffect } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import BacktoTop from "./components/BacktoTop";
 import { Routes, Route, Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Navigation = lazy(() => import("./components/Navigation"));
 
@@ -34,16 +35,27 @@ const LoadingPlaceholder = () => (
     </Box>
   </Box>
 );
-const Layout = () => (
-  <>
-    <Navigation />
-    <Suspense fallback={<LoadingPlaceholder />}>
-      <Outlet />
-    </Suspense>
-    <Footer />
-    <BacktoTop />
-  </>
-);
+const Layout = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // optional for smooth scrolling
+    });
+  }, [pathname]);
+
+  return (
+    <>
+      <Navigation />
+      <Suspense fallback={<LoadingPlaceholder />}>
+        <Outlet />
+      </Suspense>
+      <Footer />
+      <BacktoTop />
+    </>
+  );
+};
 
 const App = () => {
   useEffect(() => {
