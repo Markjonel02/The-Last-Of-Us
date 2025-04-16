@@ -3,16 +3,24 @@ import { Box, Text } from "@chakra-ui/react";
 import BacktoTop from "./components/BacktoTop";
 import { Routes, Route, Outlet } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
 const Navigation = lazy(() => import("./components/Navigation"));
 
 const Home = lazy(() => import("./components/Home"));
-const Faq = lazy(() => import("./components/Faqs"));
 const Footer = lazy(() => import("./components/Footer"));
 const Pricing = lazy(() => import("./routes/Pricing"));
 const Nopage = lazy(() => import("./routes/Horror404"));
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+
+export const RefreshTopRoutes = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const LoadingPlaceholder = () => (
   <Box className="loading-container">
@@ -35,46 +43,34 @@ const LoadingPlaceholder = () => (
     </Box>
   </Box>
 );
-const Layout = () => {
-  const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // optional for smooth scrolling
-    });
-  }, [pathname]);
-
-  return (
-    <>
-      <Navigation />
-      <Suspense fallback={<LoadingPlaceholder />}>
-        <Outlet />
-      </Suspense>
-      <Footer />
-      <BacktoTop />
-    </>
-  );
-};
-
+const Layout = () => (
+  <>
+    <Navigation />
+    <Outlet />
+    <Suspense fallback={<LoadingPlaceholder />}>
+      <RefreshTopRoutes />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="*" element={<Nopage />} />
+      </Routes>
+    </Suspense>
+    <Footer />
+    <BacktoTop />
+  </>
+);
 const App = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration in milliseconds
-      easing: "ease-in-out", // Animation easing style
+      easing: "ease-in-out", // Animation easing styleS
     });
   }, []);
   return (
     <Suspense fallback={<LoadingPlaceholder />}>
       <Routes>
-        {/* Shared layout */}
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/faq" element={<Faq />} />
-        </Route>
-
-        {/* Catch-all for 404 — no layout */}
+        <Route path="/*" element={<Layout />} />
         <Route path="*" element={<Nopage />} />
       </Routes>
     </Suspense>

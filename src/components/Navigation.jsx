@@ -305,7 +305,7 @@ const TABS = [
         {/* Left Section with 4 Links */}
         <Flex direction="column" flex="1" gap={2}>
           <a
-            href="#overview"
+            href="/#overview"
             style={{
               color: "white",
               textDecoration: "none",
@@ -317,7 +317,7 @@ const TABS = [
             Overview
           </a>
           <a
-            href="#story"
+            href="/#story"
             style={{
               color: "white",
               textDecoration: "none",
@@ -329,7 +329,7 @@ const TABS = [
             Story
           </a>
           <a
-            href="#discover"
+            href="/#discover"
             style={{
               color: "white",
               textDecoration: "none",
@@ -341,7 +341,7 @@ const TABS = [
             Discover
           </a>
           <a
-            href="#Character"
+            href="/#Character"
             style={{
               color: "white",
               textDecoration: "none",
@@ -357,7 +357,7 @@ const TABS = [
         {/* Right Section with 3 Links */}
         <Flex direction="column" flex="1" gap={2}>
           <a
-            href="#building"
+            href="/#building"
             style={{
               color: "white",
               textDecoration: "none",
@@ -369,7 +369,7 @@ const TABS = [
             Building
           </a>
           <a
-            href="#community"
+            href="/#community"
             style={{
               color: "white",
               textDecoration: "none",
@@ -381,7 +381,7 @@ const TABS = [
             Community
           </a>
           <a
-            href="#faq"
+            href="/#faq"
             style={{
               color: "white",
               textDecoration: "none",
@@ -464,7 +464,7 @@ const TABS = [
             all
           </Link>
           <a
-            href="#overview"
+            href=""
             style={{
               color: "white",
               textDecoration: "none",
@@ -476,7 +476,7 @@ const TABS = [
             ElliE
           </a>
           <a
-            href="#story"
+            href="#"
             style={{
               color: "white",
               textDecoration: "none",
@@ -492,7 +492,7 @@ const TABS = [
         {/* Right Section with 3 Links */}
         <Flex direction="column" flex="1" gap={2}>
           <a
-            href="#discover"
+            href="#"
             style={{
               color: "white",
               textDecoration: "none",
@@ -504,7 +504,7 @@ const TABS = [
             abby
           </a>
           <a
-            href="#Character"
+            href="#"
             style={{
               color: "white",
               textDecoration: "none",
@@ -516,7 +516,7 @@ const TABS = [
             Tommy miller
           </a>
           <a
-            href="#building"
+            href="#"
             style={{
               color: "white",
               textDecoration: "none",
