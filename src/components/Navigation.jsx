@@ -21,7 +21,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FiChevronDown, FiMenu } from "react-icons/fi";
-import { Link, Outlet } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import blood from "../assets/img/blood.png";
 
 // Create Scroll Context
@@ -46,7 +46,7 @@ const ScrollProvider = ({ children }) => {
 export default function HoverNavbar() {
   return (
     <ScrollProvider>
-      <NavBar /> <Outlet />
+      <NavBar />
     </ScrollProvider>
   );
 }
