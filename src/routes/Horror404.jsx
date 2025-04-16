@@ -77,6 +77,7 @@ const Horror404 = () => {
             fontWeight="bold"
             color="white"
             textAlign="center"
+            letterSpacing="wider"
           >
             404
           </Text>
@@ -84,8 +85,9 @@ const Horror404 = () => {
             fontSize={{ base: "2em", md: "4em" }}
             fontWeight="bold"
             color="white"
+            letterSpacing={2}
           >
-            You&apos;re Lost in the Dark
+            page not found
           </Text>
         </Box>
 

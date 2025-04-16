@@ -1,7 +1,7 @@
 import { lazy, Suspense, memo, useEffect } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import BacktoTop from "./components/BacktoTop";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 
 const Navigation = lazy(() => import("./components/Navigation"));
 
@@ -13,6 +13,15 @@ const Nopage = lazy(() => import("./routes/Horror404"));
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 const LoadingPlaceholder = () => (
   <Box className="loading-container">
     <Box className="loading-shimmer">
@@ -54,6 +63,8 @@ const App = () => {
   }, []);
   return (
     <Suspense fallback={<LoadingPlaceholder />}>
+      {" "}
+      <ScrollToTop />
       <Routes>
         {/* Shared layout */}
         <Route element={<Layout />}>
