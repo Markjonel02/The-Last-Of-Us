@@ -47,9 +47,9 @@ const LoadingPlaceholder = () => (
 const Layout = () => (
   <>
     <Navigation />
-
+    <Outlet />
     <Suspense fallback={<LoadingPlaceholder />}>
-      <RefreshTopRoutes />
+
       <Routes>
         <Route index element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
