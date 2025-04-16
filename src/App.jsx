@@ -2,14 +2,25 @@ import { lazy, Suspense, memo, useEffect } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import BacktoTop from "./components/BacktoTop";
 import { Routes, Route, Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const Navigation = lazy(() => import("./components/Navigation"));
+
 const Home = lazy(() => import("./components/Home"));
-const Faq = lazy(() => import("./components/Faqs"));
 const Footer = lazy(() => import("./components/Footer"));
 const Pricing = lazy(() => import("./routes/Pricing"));
 const Nopage = lazy(() => import("./routes/Horror404"));
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles const
+import "aos/dist/aos.css"; // Import AOS styles
+
+export const RefreshTopRoutes = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const LoadingPlaceholder = () => (
   <Box className="loading-container">
@@ -32,22 +43,28 @@ const LoadingPlaceholder = () => (
     </Box>
   </Box>
 );
+
 const Layout = () => (
   <>
     <Navigation />
+    <Outlet />
     <Suspense fallback={<LoadingPlaceholder />}>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="pricing" element={<Pricing />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="*" element={<Nopage />} />
       </Routes>
     </Suspense>
-    <Footer /> <BacktoTop />
+    <Footer />
+    <BacktoTop />
   </>
 );
-
 const App = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, easing: "ease-in-out" });
+    AOS.init({
+      duration: 1000, // Animation duration in milliseconds
+      easing: "ease-in-out", // Animation easing styleS
+    });
   }, []);
   return (
     <Suspense fallback={<LoadingPlaceholder />}>
@@ -58,4 +75,5 @@ const App = () => {
     </Suspense>
   );
 };
+
 export default memo(App);
