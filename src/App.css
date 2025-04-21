@@ -79,7 +79,7 @@ html {
   background-color: #1a1a1a;
 }
 .glowing-text {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), #ffffff, rgba(255, 255, 255, 0.2));
+  background: linear-gradient(90deg, rgba(239, 233, 233, 0.2), #ffffff, rgba(255, 255, 255, 0.2));
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -94,3 +94,6 @@ html {
     background-position: 150% 0;
   }
 }
+
+
+/* custom css for Pricing  */

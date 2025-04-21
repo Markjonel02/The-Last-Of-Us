@@ -10,6 +10,8 @@ const Faq = lazy(() => import("./components/Faqs"));
 const Footer = lazy(() => import("./components/Footer"));
 const Pricing = lazy(() => import("./routes/Pricing"));
 const Nopage = lazy(() => import("./routes/Horror404"));
+import TLousRemasteredii from "./routes/TLousRemasteredii";
+
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 
@@ -69,7 +71,8 @@ const App = () => {
         {/* Shared layout */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/pricing" element={<Pricing />}></Route>
+          <Route path="tlous2" element={<TLousRemasteredii />} />
           <Route path="/faq" element={<Faq />} />
         </Route>
 

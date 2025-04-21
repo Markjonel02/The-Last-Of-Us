@@ -21,7 +21,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FiChevronDown, FiMenu } from "react-icons/fi";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link, Outlet } from "react-router-dom"; // Import Link from react-router-dom
 import blood from "../assets/img/blood.png";
 
 // Create Scroll Context
@@ -409,7 +409,7 @@ const TABS = [
         p={4}
         backdropFilter="blur(10px)"
       >
-        <Text mx={2}>Game 1</Text>
+        <Link to="tlous2">The Last of Us 2 Remastered</Link>
         <Text mx={2}>Game 2</Text>
       </Flex>
     ),

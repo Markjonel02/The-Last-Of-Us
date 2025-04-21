@@ -1,31 +1,412 @@
-import { Box, Button, Card, Image, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
+import bg from "../assets/img/Banner/The-Last-of-Us-part-2-remastered-hub-hero-banner-desktop-01-en-27nov23.webp";
+import {
+  Radio,
+  RadioGroup,
+  Box,
+  Flex,
+  Icon,
+  Text,
+  Button,
+  HStack,
+  Stack,
+  Grid,
+  Image,
+} from "@chakra-ui/react";
+import { FaStar, FaPlaystation } from "react-icons/fa";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { motion } from "framer-motion";
+import { SwiperSlide, Swiper } from "swiper/react";
+import { Pricingimg } from "../components/utils/Pricing";
+import { Navigation } from "swiper/modules";
+import "swiper/css/navigation";
+import bg2 from "../assets/img/Banner/the-last-of-us-2.jpg";
+import complete from "../assets/img/Banner/complete.png";
 
+const MotionBox = motion(Box);
 const Pricing = () => {
+  const [selectedValue, setSelectedValue] = useState("");
+  const [liked, setLiked] = useState(false);
+
   return (
-    <Card maxW="sm" overflow="hidden" p="4">
-      <Image
-        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-        alt="Green double couch with wooden legs"
-      />
-      <VStack align="start" spacing="2" mt="4">
-        <Text fontSize="lg" fontWeight="bold">
-          Living room Sofa
+    <>
+      <Flex
+        bg={`url(${bg})`}
+        backgroundSize="cover"
+        backgroundRepeat="no-repeat"
+        minHeight="100vh"
+        width="100%"
+        position="relative"
+        direction="column"
+        justify="flex-start"
+        align="flex-start"
+        px={{ base: 4, md: 8 }}
+        py={{ base: 6, md: 10 }}
+      >
+        {/* Game Info */}
+        <Box mb={6}>
+          <Text
+            color="white"
+            fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
+            fontWeight="semibold"
+            letterSpacing={1}
+            mb={2}
+          >
+            The Last of Us Part II Remastered
+          </Text>
+          <Text
+            color="white"
+            fontSize={{ base: "sm", md: "md" }}
+            fontWeight="normal"
+            letterSpacing={1}
+            mb={2}
+          >
+            Sony Interactive Entertainment
+          </Text>
+          <HStack spacing={1} mb={2}>
+            {[...Array(5)].map((_, index) => (
+              <Icon key={index} as={FaStar} color="white" boxSize={3} />
+            ))}
+            <Text color="white" fontSize={{ base: "xs", md: "sm" }}>
+              4.49 • 220.5K ratings
+            </Text>
+          </HStack>
+        </Box>
+
+        {/* Purchase Options */}
+        <RadioGroup onChange={setSelectedValue} value={selectedValue} mb={6}>
+          <Stack spacing={4}>
+            <MotionBox
+              animate={{
+                backgroundColor: selectedValue === "full" ? "#2d2d2d" : "#000",
+              }}
+              transition={{ duration: 0.3 }}
+              p={4}
+              borderRadius="md"
+              color="white"
+              borderWidth={selectedValue === "full" ? "2px" : "1px"}
+              borderColor={selectedValue === "full" ? "gray.600" : "gray.700"}
+            >
+              <Radio value="full">
+                <Text fontSize={{ base: "md", md: "lg" }}>PHP: 2,770</Text>
+              </Radio>
+            </MotionBox>
+
+            <MotionBox
+              animate={{
+                backgroundColor: selectedValue === "trial" ? "#2d2d2d" : "#000",
+              }}
+              transition={{ duration: 0.3 }}
+              p={4}
+              borderRadius="md"
+              color="white"
+              borderWidth={selectedValue === "trial" ? "2px" : "1px"}
+              borderColor={selectedValue === "trial" ? "gray.600" : "gray.700"}
+            >
+              <Radio value="trial">
+                <HStack align="start" spacing={3}>
+                  <Box>
+                    <Text fontSize={{ base: "md", md: "lg" }}>Game Trial</Text>
+                    <HStack spacing={1} mt={1}>
+                      <Icon as={FaPlaystation} color="yellow.400" />
+                      <Text
+                        fontSize={{ base: "xs", md: "sm" }}
+                        color="yellow.400"
+                      >
+                        Subscribe to PlayStation Plus Premium to play a 2‑hour
+                        trial
+                      </Text>
+                    </HStack>
+                  </Box>
+                </HStack>
+              </Radio>
+            </MotionBox>
+          </Stack>
+        </RadioGroup>
+
+        {/* Action Buttons */}
+        <HStack spacing={4} mb={4} flexWrap="wrap">
+          <Button
+            colorScheme="red"
+            fontWeight="normal"
+            borderRadius="full"
+            letterSpacing={1}
+            px={{ base: 10, md: 20 }}
+            size="lg"
+            onClick={() =>
+              window.open(
+                "https://www.playstation.com/en-us/games/the-last-of-us-part-ii-remastered/",
+                "_blank"
+              )
+            }
+          >
+            Subscribe
+          </Button>
+
+          <Button
+            onClick={() => setLiked(!liked)}
+            color="white"
+            bg="transparent"
+            _hover={{ bg: "transparent" }}
+            _active={{ bg: liked ? "red.500" : "gray.200" }}
+            borderRadius="full"
+            w="60px"
+            h="60px"
+            aria-label="Like button"
+            fontSize="3xl"
+          >
+            <Icon
+              as={liked ? AiFillHeart : AiOutlineHeart}
+              color={liked ? "red" : "gray.500"}
+            />
+          </Button>
+        </HStack>
+
+        {/* Rating Note */}
+        <Text
+          color="white"
+          fontSize={{ base: "xs", md: "sm" }}
+          mt={2}
+          letterSpacing={1}
+        >
+          Blood and Gore, Intense Violence, Nudity, Sexual Content, Strong
+          Language, Use of Drugs
         </Text>
-        <Text>
-          This sofa is perfect for modern tropical spaces, baroque-inspired
-          spaces.
-        </Text>
-        <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-          $450
-        </Text>
-      </VStack>
-      <Box mt="4" display="flex" justifyContent="space-between" gap="2">
-        <Button variant="solid" colorScheme="blue">
-          Buy now
-        </Button>
-        <Button variant="ghost">Add to cart</Button>
+
+        {/* Feature Grid */}
+        <Box mt={8} color="white" fontSize={{ base: "sm", md: "md" }}>
+          <Text fontWeight="medium" mb={4}>
+            Released 01‑19‑2024
+          </Text>
+
+          <Grid
+            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+            gap={0}
+            letterSpacing={1}
+          >
+            <Box>
+              <Text>🌐 Offline play enabled</Text>
+              <Text>👤 1 player</Text>
+              <Text>🎮 Remote Play supported</Text>
+              <Text>🕹 PS5 Version</Text>
+            </Box>
+
+            <Box letterSpacing={1}>
+              <Text>
+                🎧 Vibration function and trigger effect supported DualSense
+                wireless controller
+              </Text>
+              <Text>📈 PS5 Pro Enhanced</Text>
+              <Text>💡 Game Help supported</Text>
+              <Text>☁️ Streaming supported only with Premium subscription</Text>
+            </Box>
+          </Grid>
+        </Box>
+      </Flex>
+
+      <Box bg="black" w="100%" py={10}>
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={5}
+          modules={[Navigation]}
+          breakpoints={{
+            390: { slidesPerView: 1.5 },
+            490: { slidesPerView: 2 },
+            768: { slidesPerView: 3.5 },
+            1024: {
+              slidesPerView: 4.8,
+            },
+          }}
+        >
+          {Pricingimg.map((pricing, id) => (
+            <SwiperSlide
+              key={id}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Image
+                src={pricing.image}
+                w={{ base: "300", md: "500" }}
+                h="200px"
+                objectFit="contain"
+                borderRadius="md"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Box>
-    </Card>
+      <Box
+        bg={`url(${bg2})`}
+        backgroundSize="cover"
+        backgroundRepeat="no-repeat"
+        minHeight="100vh"
+        width="100%"
+        position="relative"
+      >
+        {/* Overlay for dark effect */}
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          width="100%"
+          height="100%"
+          bg="rgba(0, 0, 0, 0.7)"
+          zIndex="1"
+        ></Box>
+
+        {/* Responsive Content */}
+        <Flex
+          position="relative"
+          zIndex="2"
+          direction={{ base: "column", md: "row" }}
+          justify="space-between"
+          align="center"
+          height="100%"
+          px={{ base: 6, md: 20 }}
+          py={20}
+          gap={8}
+        >
+          {/* Left Content */}
+          <Box color="white" fontSize="20px" textAlign="left" flex="1">
+            <Text fontSize="0.7em" fontWeight="normal" color="#54b2ffff">
+              What is The Last of Us Part II Remastered?
+            </Text>
+            <Text
+              fontSize={{ base: "1em", md: "2em" }}
+              whiteSpace="pre-line"
+              width={{ base: "100%", md: "75%" }}
+              fontWeight="normal"
+              letterSpacing={1}
+            >
+              EXPERIENCE ELLIE AND ABBY&apos;S EMOTIONAL JOURNEYS, REMASTERED
+              FOR PS5
+            </Text>
+          </Box>
+
+          {/* Right Content */}
+          <Box
+            color="white"
+            fontSize="20px"
+            textAlign="right"
+            flex="1"
+            width="100%"
+            py={20}
+          >
+            <Text
+              fontSize="0.7em"
+              fontWeight="normal"
+              letterSpacing={1}
+              textAlign={{ base: "left" }}
+            >
+              Play the winner of over 300 Game of the Year awards, remastered
+              for the PlayStation®5 console. Relive or play for the first time
+              Ellie and Abby&apos;s story, now with graphical enhancements, new
+              gameplay modes like the roguelike survival experience No Return,
+              full DualSense® wireless controller integration, and more.
+              <Text mt={4}>
+                Five years after their dangerous journey across the
+                post&#x2010;pandemic United States, Ellie and Joel have settled
+                down in Jackson, Wyoming. Living amongst a thriving community of
+                survivors has allowed them peace and stability, despite the
+                constant threat of the infected and other, more desperate
+                survivors. When a violent event disrupts that peace, Ellie
+                embarks on a relentless journey to carry out justice and find
+                closure.
+              </Text>
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
+      <Box
+        display="flex"
+        flexDirection={{ base: "column", md: "row" }}
+        h="100%"
+        width="100%"
+        position="relative"
+      >
+        {/* Left Image Container */}
+        <Box
+          flex="1"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          bg="black"
+        >
+          <Box
+            backgroundImage={`url(${complete})`}
+            backgroundSize="contain"
+            backgroundRepeat="no-repeat"
+            backgroundPosition="center"
+            borderRadius="16px" // Adjust this value for a larger radius
+            width={{ base: "300px", md: "500px" }}
+            height={{ base: "300px", md: "500px" }}
+            transition="transform 0.3s ease-in-out" // Smooth animation
+            _hover={{
+              transform: "scale(1.05)", // Slight zoom effect
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Optional shadow effect
+            }}
+            data-aos="fade-right"
+            data-aos-dleay="100"
+          />
+        </Box>
+
+        {/* Right Text Container */}
+        <Box
+          flex="1"
+          bg="black"
+          color="white"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="flex-start"
+          padding="6"
+        >
+          <Text
+            fontSize="0.7em"
+            fontWeight="normal"
+            mb="4"
+            letterSpacing={1}
+            color="#54b2ffff"
+          >
+            Two masterpieces, together at last.
+          </Text>
+          <Text
+            fontSize={{ base: "1.5em", md: "2em" }}
+            data-aos="fade-up"
+            data-aos-dleay="100"
+          >
+            The Last of Us Complete
+          </Text>
+          <Text
+            fontSize="0.9em"
+            letterSpacing={1}
+            mb="4"
+            w="80%"
+            data-aos="fade-up"
+            data-aos-dleay="150"
+          >
+            Go back to the beginning and experience the award&#x2010;winning
+            games that inspired the TV show, as the definitive editions of these
+            two iconic and emotional stories are brought together for the first
+            time in one complete collection.
+          </Text>
+          <Text
+            fontSize="0.9em"
+            letterSpacing={1}
+            mb="4"
+            w="80%"
+            data-aos="fade-up"
+            data-aos-dleay="150"
+          >
+            Whether this is your first time stepping into the world of The Last
+            of Us or you&apos;re a player returning to the series since playing
+            on PS4® or PS3®, enjoy a host of game-changing graphical and
+            gameplay improvements made possible by the PlayStation®5 console
+            along with additional content released in Part I and Part II
+            Remastered.
+          </Text>
+        </Box>
+      </Box>
+    </>
   );
 };
 

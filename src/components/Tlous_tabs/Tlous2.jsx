@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Image, Text, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { tabData } from "../utils/Tabdata";
-
+import { Link } from "react-router-dom";
 const MotionBox = motion(Box);
 
 const Tlous2 = ({ isActive }) => {
@@ -76,6 +76,7 @@ const Tlous2 = ({ isActive }) => {
               color: "black", // Text color turns black on hover
             }}
           >
+            <Link to="/"></Link>
             Find out more
           </Button>
         </MotionBox>
