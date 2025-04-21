@@ -24,7 +24,6 @@ const Home = () => {
           transform="translateY(-50%)"
           zIndex="20"
           textAlign="left"
-          
         >
           <Text
             fontSize={{ base: "2em", md: "4em", lg: "8em" }}

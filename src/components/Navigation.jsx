@@ -116,12 +116,12 @@ const MobileMenu = () => {
         icon={<FiMenu />}
         variant="unstyled"
         onClick={onOpen}
-        color="white"
+        color="black"
       />
 
       <Drawer isOpen={isOpen} onClose={onClose} size="full">
         <DrawerOverlay />
-        <DrawerContent bg="gray.900">
+        <DrawerContent bg="black">
           <DrawerCloseButton color="white" />
           <DrawerBody mt={10}>
             <Accordion allowToggle>
@@ -131,7 +131,7 @@ const MobileMenu = () => {
                     <Text
                       flex="1"
                       textAlign="left"
-                      color="#1c1a19ff"
+                      color="white"
                       fontSize="lg"
                       letterSpacing="2px"
                       fontWeight={800}

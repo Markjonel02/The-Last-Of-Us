@@ -12,7 +12,9 @@ import {
   Stack,
   Grid,
   Image,
+  IconButton,
 } from "@chakra-ui/react";
+
 import { FaStar, FaPlaystation } from "react-icons/fa";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { motion } from "framer-motion";
@@ -345,7 +347,7 @@ const Pricing = () => {
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Optional shadow effect
             }}
             data-aos="fade-right"
-            data-aos-dleay="100"
+            data-aos-delay="100"
           />
         </Box>
 
@@ -372,7 +374,7 @@ const Pricing = () => {
           <Text
             fontSize={{ base: "1.5em", md: "2em" }}
             data-aos="fade-up"
-            data-aos-dleay="100"
+            data-aos-delay="100"
           >
             The Last of Us Complete
           </Text>
@@ -382,7 +384,7 @@ const Pricing = () => {
             mb="4"
             w="80%"
             data-aos="fade-up"
-            data-aos-dleay="150"
+            data-aos-delay="150"
           >
             Go back to the beginning and experience the award&#x2010;winning
             games that inspired the TV show, as the definitive editions of these
@@ -395,7 +397,7 @@ const Pricing = () => {
             mb="4"
             w="80%"
             data-aos="fade-up"
-            data-aos-dleay="150"
+            data-aos-delay="150"
           >
             Whether this is your first time stepping into the world of The Last
             of Us or you&apos;re a player returning to the series since playing
@@ -404,6 +406,48 @@ const Pricing = () => {
             along with additional content released in Part I and Part II
             Remastered.
           </Text>
+          <HStack spacing={4} data-aos="fade-up" data-aos-delay="100">
+            <Button
+              color="white"
+              bg="#e24301"
+              _hover={{ bg: "#c53b00" }}
+              size="lg"
+              borderRadius="full"
+              fontWeight="bold"
+              px={20}
+            >
+              Add to Cart
+            </Button>
+
+            <Button
+              onClick={() => setLiked(!liked)}
+              color="white"
+              bg="transparent"
+              _hover={{ bg: "transparent" }}
+              _active={{ bg: liked ? "red.500" : "gray.200" }}
+              borderRadius="full"
+              w="60px"
+              h="60px"
+              aria-label="Like button"
+              fontSize="3xl"
+            >
+              <Icon
+                as={liked ? AiFillHeart : AiOutlineHeart}
+                color={liked ? "red" : "gray.500"}
+              />
+            </Button>
+            {/* <IconButton
+              onClick={() => setLiked(!liked)}
+              icon={<AiOutlineHeart color="#005eb8" />}
+              aria-label="Add to Wishlist"
+              variant="ghost"
+              borderRadius="full"
+              size="md"
+              bg="gray.100"
+              _hover={{ bg: "gray.200" }}
+              _active={{ bg: liked ? "red.500" : "gray.200" }}
+            /> */}
+          </HStack>
         </Box>
       </Box>
     </>
