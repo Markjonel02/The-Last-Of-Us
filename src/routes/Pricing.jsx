@@ -12,7 +12,11 @@ import {
   Stack,
   Grid,
   Image,
-  IconButton,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
 } from "@chakra-ui/react";
 
 import { FaStar, FaPlaystation } from "react-icons/fa";
@@ -25,6 +29,10 @@ import "swiper/css/navigation";
 import bg2 from "../assets/img/Banner/the-last-of-us-2.jpg";
 import complete from "../assets/img/Banner/complete.png";
 
+/*routes  */
+import Noreturn from "../routes/Noreturn";
+import Pc from "../routes/Pc";
+import Keyfeatures from "./Keyfeatures";
 const MotionBox = motion(Box);
 const Pricing = () => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -338,16 +346,15 @@ const Pricing = () => {
             backgroundSize="contain"
             backgroundRepeat="no-repeat"
             backgroundPosition="center"
-            borderRadius="16px" // Adjust this value for a larger radius
+            borderRadius="16px"
             width={{ base: "300px", md: "500px" }}
             height={{ base: "300px", md: "500px" }}
-            transition="transform 0.3s ease-in-out" // Smooth animation
-            _hover={{
-              transform: "scale(1.05)", // Slight zoom effect
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)", // Optional shadow effect
-            }}
             data-aos="fade-right"
             data-aos-delay="100"
+            transition="transform 0.3s ease-in-out"
+            _hover={{
+              transform: "scale(1.02)",
+            }}
           />
         </Box>
 
@@ -401,7 +408,7 @@ const Pricing = () => {
           >
             Whether this is your first time stepping into the world of The Last
             of Us or you&apos;re a player returning to the series since playing
-            on PS4® or PS3®, enjoy a host of game-changing graphical and
+            on PS4® or PS3®, enjoy a host of game&#x2010;changing graphical and
             gameplay improvements made possible by the PlayStation®5 console
             along with additional content released in Part I and Part II
             Remastered.
@@ -411,10 +418,11 @@ const Pricing = () => {
               color="white"
               bg="#e24301"
               _hover={{ bg: "#c53b00" }}
-              size="lg"
+              size={{ base: "md", md: "lg" }}
               borderRadius="full"
-              fontWeight="bold"
+              fontWeight="normal"
               px={20}
+              letterSpacing={1}
             >
               Add to Cart
             </Button>
@@ -436,22 +444,65 @@ const Pricing = () => {
                 color={liked ? "red" : "gray.500"}
               />
             </Button>
-            {/* <IconButton
-              onClick={() => setLiked(!liked)}
-              icon={<AiOutlineHeart color="#005eb8" />}
-              aria-label="Add to Wishlist"
-              variant="ghost"
-              borderRadius="full"
-              size="md"
-              bg="gray.100"
-              _hover={{ bg: "gray.200" }}
-              _active={{ bg: liked ? "red.500" : "gray.200" }}
-            /> */}
           </HStack>
         </Box>
       </Box>
+
+      <Box display="flex" flexDirection="column" alignItems="center" mt={5}>
+        <Text fontSize="3em" mb={4} textAlign="center">
+          Buy The Last of Us Part II Remastered
+        </Text>
+
+        <Tabs variant="unstyled" w="100%" isFitted mx={5}>
+          <TabList
+            border="1px solid gray"
+            borderRadius="10px"
+            p={2}
+            maxW="md"
+            w="100%"
+            mx="auto"
+            mb={10}
+          >
+            {tabsData.map((tab, index) => (
+              <Tab
+                key={index}
+                fontWeight="normal"
+                borderRadius="10px"
+                mx={3}
+                _selected={{
+                  bg: "black",
+                  color: "white",
+                }}
+                _focus={{ boxShadow: "none" }}
+              >
+                {tab.label}
+              </Tab>
+            ))}
+          </TabList>
+
+          <TabPanels w="100%">
+            {tabsData.map((tab, index) => (
+              <TabPanel key={index} w="100%" p={0}>
+                <Box w="100%">{tab.component}</Box>
+              </TabPanel>
+            ))}
+          </TabPanels>
+        </Tabs>
+      </Box>
+      <Keyfeatures />
     </>
   );
 };
 
 export default Pricing;
+
+const tabsData = [
+  {
+    label: "Noreturn",
+    component: <Noreturn />,
+  },
+  {
+    label: "Pc",
+    component: <Pc />,
+  },
+];

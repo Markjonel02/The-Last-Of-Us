@@ -20,6 +20,7 @@ import Tlous5 from "./Tlous_tabs/Tlous5";
 
 const components = [Tlous1, Tlous2, Tlous3, Tlous4, Tlous5];
 
+
 const Overview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);

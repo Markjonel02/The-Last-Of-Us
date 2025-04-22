@@ -10,6 +10,7 @@ import TlousComplete from "./TlousComplete";
 import Playstation from "./Playstation";
 import Faqs from "./Faqs";
 import Community from "./Community";
+
 const Home = () => {
   return (
     <>

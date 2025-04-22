@@ -126,7 +126,7 @@ const MobileMenu = () => {
           <DrawerBody mt={10}>
             <Accordion allowToggle>
               {TABS.map((t) => (
-                <AccordionItem key={t.id} border="none">
+                <AccordionItem key={t.id} border="none" color="white">
                   <AccordionButton _hover={{ bg: "gray.800" }}>
                     <Text
                       flex="1"
