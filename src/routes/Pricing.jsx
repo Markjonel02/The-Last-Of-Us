@@ -34,6 +34,7 @@ import Noreturn from "../routes/Noreturn";
 import Pc from "../routes/Pc";
 import Keyfeatures from "./Keyfeatures";
 import Upgrade from "./Upgrade";
+import TlousLimited from "./TlousLimited";
 
 const MotionBox = motion(Box);
 const Pricing = () => {
@@ -493,6 +494,7 @@ const Pricing = () => {
       </Box>
       <Keyfeatures />
       <Upgrade />
+      <TlousLimited />
     </>
   );
 };
