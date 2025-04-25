@@ -4,6 +4,7 @@ import {
   Link,
   VStack,
   HStack,
+  Flex,
   SimpleGrid,
   Divider,
   useColorModeValue,
@@ -17,7 +18,7 @@ const TheLastOfUsFooter = () => {
 
   return (
     <Box bg={bg} color={textColor} px={{ base: 6, md: 16 }} py={12}>
-      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         {/* Branding */}
         <Box>
           <Text
@@ -34,50 +35,55 @@ const TheLastOfUsFooter = () => {
           </Text>
         </Box>
 
-        {/* Navigation */}
-        <VStack align="flex-start">
-          <Text
-            fontWeight="400"
-            fontSize="lg"
-            color={hoverColor}
-            letterSpacing={2}
-          >
-            Explore
-          </Text>
-          <Link href="#" _hover={{ color: hoverColor }}>
-            Home
-          </Link>
-          <Link href="#" _hover={{ color: hoverColor }}>
-            Story
-          </Link>
-          <Link href="#" _hover={{ color: hoverColor }}>
-            Characters
-          </Link>
-          <Link href="#" _hover={{ color: hoverColor }}>
-            Gallery
-          </Link>
-        </VStack>
+        {/* Explore + Support */}
+        <Flex
+          direction={{ base: "row", md: "column" }}
+          gap={{ base: 10, md: 0 }}
+          justify={{ base: "space-between", md: "flex-start" }}
+        >
+          <VStack align="flex-start" spacing={2}>
+            <Text
+              fontWeight="400"
+              fontSize="lg"
+              color={hoverColor}
+              letterSpacing={2}
+            >
+              Explore
+            </Text>
+            <Link href="#" _hover={{ color: hoverColor }}>
+              Home
+            </Link>
+            <Link href="#" _hover={{ color: hoverColor }}>
+              Story
+            </Link>
+            <Link href="#" _hover={{ color: hoverColor }}>
+              Characters
+            </Link>
+            <Link href="#" _hover={{ color: hoverColor }}>
+              Gallery
+            </Link>
+          </VStack>
 
-        {/* Support */}
-        <VStack align="flex-start">
-          <Text
-            fontSize="lg"
-            color={hoverColor}
-            letterSpacing={2}
-            fontWeight="400"
-          >
-            Support
-          </Text>
-          <Link href="#" _hover={{ color: hoverColor }}>
-            Help Center
-          </Link>
-          <Link href="#" _hover={{ color: hoverColor }}>
-            Community
-          </Link>
-          <Link href="#" _hover={{ color: hoverColor }}>
-            Privacy Policy
-          </Link>
-        </VStack>
+          <VStack align="flex-start" spacing={2}>
+            <Text
+              fontSize="lg"
+              color={hoverColor}
+              letterSpacing={2}
+              fontWeight="400"
+            >
+              Support
+            </Text>
+            <Link href="#" _hover={{ color: hoverColor }}>
+              Help Center
+            </Link>
+            <Link href="#" _hover={{ color: hoverColor }}>
+              Community
+            </Link>
+            <Link href="#" _hover={{ color: hoverColor }}>
+              Privacy Policy
+            </Link>
+          </VStack>
+        </Flex>
 
         {/* Social */}
         <Box>

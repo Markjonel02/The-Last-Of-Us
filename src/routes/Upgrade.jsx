@@ -24,7 +24,13 @@ const Upgrade = () => {
       </Box>
 
       {/* Two Columns */}
-      <Flex mt={6} width="100%" maxW="800px" align="center" flexDirection="row">
+      <Flex
+        m="1.5em 0"
+        width="100%"
+        maxW="800px"
+        align="center"
+        flexDirection="row"
+      >
         {/* Left Column (Text) */}
         <Box className="left" flex="1" textAlign="left" color="white">
           <Text fontSize="2em" fontWeight="normal">
@@ -47,7 +53,7 @@ const Upgrade = () => {
       </Flex>
 
       {/* Bottom Section (Now Left-Aligned) */}
-      <Box className="center" mt={6} maxWidth={{ base: 400, md: 800 }}>
+      <Box className="center" mt={10} maxWidth={{ base: 400, md: 800 }}>
         <Text
           fontSize="0.7em"
           fontWeight="normal"
@@ -63,7 +69,58 @@ const Upgrade = () => {
           PS5 version for the discounted price.
         </Text>
       </Box>
-      <Flex justifyContent="center" alignItems="center"></Flex>
+
+      <Flex justifyContent="center" alignItems="center" width="100%" m="2em 0">
+        <Box
+          className="center"
+          mt={6}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
+          width={{ base: "100%", md: "60%" }}
+          background="red"
+          p="1em 01.5em"
+          borderRadius={12}
+          bg="rgba(60, 59, 59, 0.3)"
+          backdropFilter="blur(10px)"
+        >
+          <Text
+            fontSize="1.6em"
+            fontWeight="normal"
+            color="white"
+            letterSpacing={1}
+          >
+            How to upgrade
+          </Text>
+
+          <Text
+            fontSize="1em"
+            fontWeight="normal"
+            color="white"
+            letterSpacing={1}
+          >
+            Players who purchased The Last of Us Part II have the option to pay
+            an additional fee to upgrade to The Last of Us Part II Remastered.
+            The upgrade, along with local upgrade pricing, will be available on
+            the PlayStation Store starting at launch on January 19, 2024.
+          </Text>
+          <br />
+
+          <Text
+            fontSize="1em"
+            fontWeight="normal"
+            color="white"
+            letterSpacing={1}
+          >
+            Upgrades for disc copies of the PS4 version of The Last of Us Part
+            II are only available if you have a PlayStation®5 console with a
+            disc drive. Owners of PS4 disc copies must insert them into the PS5
+            every time they want to download or play the PS5 digital version.
+          </Text>
+        </Box>
+      </Flex>
     </Box>
   );
 };
