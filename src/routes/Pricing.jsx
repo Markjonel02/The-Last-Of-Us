@@ -33,6 +33,8 @@ import complete from "../assets/img/Banner/complete.png";
 import Noreturn from "../routes/Noreturn";
 import Pc from "../routes/Pc";
 import Keyfeatures from "./Keyfeatures";
+import Upgrade from "./Upgrade";
+
 const MotionBox = motion(Box);
 const Pricing = () => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -490,6 +492,7 @@ const Pricing = () => {
         </Tabs>
       </Box>
       <Keyfeatures />
+      <Upgrade />
     </>
   );
 };

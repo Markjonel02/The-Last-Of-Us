@@ -65,7 +65,7 @@ const Faqs = () => {
           >
             FAQs
           </Text>
-          <Accordion allowMultiple>
+          <Accordion allowMultiple data-aos="fade-up" data-aos-delay="500">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} border="none">
                 <AccordionButton

@@ -51,7 +51,14 @@ const Keyfeatures = () => {
               alignItems="center"
               textAlign="center"
             >
-              <Image src={data.image} alt={data.title} mb="3" />
+              <Image
+                src={data.image}
+                alt={data.title}
+                mb="3"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                borderRadius={10}
+              />
               <Text
                 fontWeight="normal"
                 fontSize="1.1em"
@@ -61,7 +68,14 @@ const Keyfeatures = () => {
               >
                 {data.title}
               </Text>
-              <Text fontSize="0.9em" color="whiteAlpha.700"></Text>
+              <Text
+                fontSize="0.9em"
+                color="whiteAlpha.700"
+                textAlign="left"
+                letterSpacing={1}
+              >
+                {data.desc}
+              </Text>
             </Box>
           ))}
         </SimpleGrid>
