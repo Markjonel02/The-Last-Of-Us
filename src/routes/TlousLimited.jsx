@@ -21,7 +21,7 @@ const TlousLimited = () => {
         p="1em 2em"
       >
         <Box className="image-up">
-          <Image src={} />
+          <Image src="" />
         </Box>
 
         <Text fontSize="3em" mb={10}>
