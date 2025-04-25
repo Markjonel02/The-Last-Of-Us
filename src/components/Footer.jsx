@@ -4,7 +4,6 @@ import {
   Link,
   VStack,
   HStack,
-  Flex,
   SimpleGrid,
   Divider,
   useColorModeValue,
@@ -18,7 +17,11 @@ const TheLastOfUsFooter = () => {
 
   return (
     <Box bg={bg} color={textColor} px={{ base: 6, md: 16 }} py={12}>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+      <SimpleGrid
+        columns={{ base: 1, md: 4 }}
+        spacing={10}
+        alignItems="flex-start"
+      >
         {/* Branding */}
         <Box>
           <Text
@@ -35,13 +38,65 @@ const TheLastOfUsFooter = () => {
           </Text>
         </Box>
 
-        {/* Explore + Support */}
-        <Flex
-          direction={{ base: "row", md: "column" }}
-          gap={{ base: 10, md: 0 }}
-          justify={{ base: "space-between", md: "flex-start" }}
+        {/* Explore (Column 2) */}
+        <VStack
+          align="flex-start"
+          display={{ base: "none", md: "flex" }} // Hide on mobile
         >
-          <VStack align="flex-start" spacing={2}>
+          <Text
+            fontWeight="400"
+            fontSize="lg"
+            color={hoverColor}
+            letterSpacing={2}
+          >
+            Explore
+          </Text>
+          <Link href="#" _hover={{ color: hoverColor }}>
+            Home
+          </Link>
+          <Link href="#" _hover={{ color: hoverColor }}>
+            Story
+          </Link>
+          <Link href="#" _hover={{ color: hoverColor }}>
+            Characters
+          </Link>
+          <Link href="#" _hover={{ color: hoverColor }}>
+            Gallery
+          </Link>
+        </VStack>
+
+        {/* Support (Column 3) */}
+        <VStack
+          align="flex-start"
+          display={{ base: "none", md: "flex" }} // Hide on mobile
+        >
+          <Text
+            fontSize="lg"
+            color={hoverColor}
+            letterSpacing={2}
+            fontWeight="400"
+          >
+            Support
+          </Text>
+          <Link href="#" _hover={{ color: hoverColor }}>
+            Help Center
+          </Link>
+          <Link href="#" _hover={{ color: hoverColor }}>
+            Community
+          </Link>
+          <Link href="#" _hover={{ color: hoverColor }}>
+            Privacy Policy
+          </Link>
+        </VStack>
+
+        {/* Explore + Support merged (Mobile view only) */}
+        <Box
+          display={{ base: "grid", md: "none" }}
+          gridTemplateColumns="1fr 1fr"
+          gap={6}
+        >
+          {/* Mobile Explore */}
+          <VStack align="flex-start">
             <Text
               fontWeight="400"
               fontSize="lg"
@@ -64,7 +119,8 @@ const TheLastOfUsFooter = () => {
             </Link>
           </VStack>
 
-          <VStack align="flex-start" spacing={2}>
+          {/* Mobile Support */}
+          <VStack align="flex-start">
             <Text
               fontSize="lg"
               color={hoverColor}
@@ -83,9 +139,9 @@ const TheLastOfUsFooter = () => {
               Privacy Policy
             </Link>
           </VStack>
-        </Flex>
+        </Box>
 
-        {/* Social */}
+        {/* Social (Column 4) */}
         <Box>
           <Text
             fontWeight="400"
