@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Text, Image, Flex } from "@chakra-ui/react";
 import imagebg from "../assets/img/Banner/the-last-of-us-dualsense-controller-background-desktop-01-en-03mar25.jpg";
 import Ps5 from "../assets/img/Banner/Ps5.png";
@@ -24,10 +23,15 @@ const TlousLimited = () => {
           <Image src="" />
         </Box>
 
-        <Text fontSize="3em" mb={10}>
+        <Text fontSize="3em" mb={10} data-aos="fade-right" data-aos-delay="300">
           DualSense® Wireless Controller – The Last of Us Limited Edition
         </Text>
-        <Text fontSize="1.5em" letterSpacing={1}>
+        <Text
+          fontSize="1.5em"
+          letterSpacing={1}
+          data-aos="fade-right"
+          data-aos-delay="350"
+        >
           Escape the Infected with this limited&#x2010;edition controller,
           featuring glossy trophy icons – from both installments of The Last of
           Us™ – printed across its surface.
@@ -35,7 +39,7 @@ const TlousLimited = () => {
       </Box>
       <Box className="Right" flex="1">
         <Box className="image-right">
-          <Image src={Ps5} />
+          <Image src={Ps5} data-aos="fade-up" data-aos-delay="400" />
         </Box>
       </Box>
     </Flex>

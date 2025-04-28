@@ -35,7 +35,7 @@ import Pc from "../routes/Pc";
 import Keyfeatures from "./Keyfeatures";
 import Upgrade from "./Upgrade";
 import TlousLimited from "./TlousLimited";
-
+import NightSeries from "./NightSeries";
 const MotionBox = motion(Box);
 const Pricing = () => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -495,6 +495,7 @@ const Pricing = () => {
       <Keyfeatures />
       <Upgrade />
       <TlousLimited />
+      <NightSeries />
     </>
   );
 };

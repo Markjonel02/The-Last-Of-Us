@@ -15,12 +15,24 @@ const Upgrade = () => {
       alignItems="flex-start" // Left-align everything
       padding="60px"
     >
-      <Text color="white" fontSize="3em">
+      <Text
+        color="white"
+        fontSize="3em"
+        data-aos="fade-right"
+        data-aos-delay="200"
+      >
         UPGRADE TO THE PS5 REMASTER
       </Text>
       {/* Top Image (Left-Aligned) */}
       <Box className="image" mb={20}>
-        <Image src={up} alt="Generated Image" w="600px" h="auto" />
+        <Image
+          src={up}
+          alt="Generated Image"
+          w="600px"
+          h="auto"
+          data-aos="fade-right"
+          data-aos-delay="300"
+        />
       </Box>
 
       {/* Two Columns */}
@@ -32,7 +44,14 @@ const Upgrade = () => {
         flexDirection="row"
       >
         {/* Left Column (Text) */}
-        <Box className="left" flex="1" textAlign="left" color="white">
+        <Box
+          className="left"
+          flex="1"
+          textAlign="left"
+          color="white"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
           <Text fontSize="2em" fontWeight="normal">
             PS5 features include:
           </Text>
@@ -48,7 +67,14 @@ const Upgrade = () => {
 
         {/* Right Column (Image) */}
         <Box className="right" flex="1">
-          <Image src={rimage} alt="Right Image" w="200px" h="auto" />
+          <Image
+            src={rimage}
+            alt="Right Image"
+            w="200px"
+            h="auto"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          />
         </Box>
       </Flex>
 
