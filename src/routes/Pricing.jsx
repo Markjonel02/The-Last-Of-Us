@@ -28,7 +28,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import bg2 from "../assets/img/Banner/the-last-of-us-2.jpg";
 import complete from "../assets/img/Banner/complete.png";
-
+import Series from "../components/Series";
 /*routes  */
 import Noreturn from "../routes/Noreturn";
 import Pc from "../routes/Pc";
@@ -55,6 +55,7 @@ const Pricing = () => {
         align="flex-start"
         px={{ base: 4, md: 8 }}
         py={{ base: 6, md: 10 }}
+        id="pricing"
       >
         {/* Game Info */}
         <Box mb={6}>
@@ -492,10 +493,21 @@ const Pricing = () => {
           </TabPanels>
         </Tabs>
       </Box>
-      <Keyfeatures />
-      <Upgrade />
-      <TlousLimited />
-      <NightSeries />
+      <Box id="keyfeatures">
+        <Keyfeatures />
+      </Box>
+      <Box id="upgrade">
+        <Upgrade />
+      </Box>
+      <Box id="limited">
+        <TlousLimited />
+      </Box>
+      <Box id="nseries">
+        <NightSeries />
+      </Box>
+      <Box id="series">
+        <Series />
+      </Box>
     </>
   );
 };

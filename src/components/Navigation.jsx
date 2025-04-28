@@ -311,7 +311,7 @@ const TABS = [
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
             Overview
@@ -323,7 +323,7 @@ const TABS = [
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
             Story
@@ -335,7 +335,7 @@ const TABS = [
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
             Discover
@@ -347,7 +347,7 @@ const TABS = [
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
             Character Overview
@@ -363,7 +363,7 @@ const TABS = [
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
             Building
@@ -375,7 +375,7 @@ const TABS = [
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
             Community
@@ -387,7 +387,7 @@ const TABS = [
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
             FAQ&apos;s
@@ -401,16 +401,82 @@ const TABS = [
     path: "/pricing", // Define path for Pricing
     Component: () => (
       <Flex
-        direction="column"
-        gap={2}
+        direction={{ base: "column", md: "row" }}
+        gap={4}
         bg="rgba(0, 0, 0, 0.8)"
         borderRadius="10px"
         boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
         p={4}
         backdropFilter="blur(10px)"
+        letterSpacing={1}
       >
-        <Link to="tlous2">The Last of Us 2 Remastered</Link>
-        <Text mx={2}>Game 2</Text>
+        {/* Left Section with 4 Links */}
+        <Flex direction="column" flex="1" gap={2}>
+          <a
+            href="/pricing#pricing"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            The last of us II
+          </a>
+          <a
+            href="/pricing#keyfeatures"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Keyfeatures
+          </a>
+          <a
+            href="/pricing#upgrade"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            upgrade
+          </a>
+        </Flex>
+
+        {/* Right Section with 3 Links */}
+        <Flex direction="column" flex="1" gap={2}>
+          <a
+            href="/pricing#nseries"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Night Series
+          </a>
+          <a
+            href="/pricing#series"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Series
+          </a>
+        </Flex>
       </Flex>
     ),
   },
