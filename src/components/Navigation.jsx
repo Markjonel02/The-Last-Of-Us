@@ -480,29 +480,10 @@ const TABS = [
       </Flex>
     ),
   },
-  {
-    title: "Map",
-    path: "/map", // Define path for Map
-    Component: () => (
-      <Flex
-        direction="column"
-        gap={2}
-        bg="rgba(0, 0, 0, 0.8)"
-        borderRadius="10px"
-        boxShadow="0 4px 6px rgba(0, 0, 0, 0.2)"
-        p={4}
-        backdropFilter="blur(10px)"
-      >
-        <Link mx={2} to="/">
-          Game 1
-        </Link>
-        <Link mx={2}>Game 2</Link>
-      </Flex>
-    ),
-  },
+
   {
     title: "Characters",
-    path: "/ss", // Define path for Characters
+    path: "/", // Define path for Characters
 
     Component: () => (
       <Flex
@@ -517,81 +498,69 @@ const TABS = [
       >
         {/* Left Section with 4 Links */}
         <Flex direction="column" flex="1" gap={2}>
-          <Link
-            to="/sample"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              transition: "color 0.3s ease, transform 0.3s ease",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
-            onMouseLeave={(e) => (e.target.style.color = "white")}
-          >
-            all
-          </Link>
           <a
-            href=""
+            href="/#Character"
             style={{
               color: "white",
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
-            ElliE
+            Joel miller
           </a>
           <a
-            href="#"
+            href="/#Character"
             style={{
               color: "white",
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
-            Joel Miller
+            Ellie Williams
+          </a>
+          <a
+            href="/#Character"
+            style={{
+              color: "white",
+              textDecoration: "none",
+              transition: "color 0.3s ease, transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
+            onMouseLeave={(e) => (e.target.style.color = "white")}
+          >
+            Andy Anderson
           </a>
         </Flex>
 
         {/* Right Section with 3 Links */}
         <Flex direction="column" flex="1" gap={2}>
           <a
-            href="#"
+            href="/#Character"
             style={{
               color: "white",
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
-            abby
+            Tommy Miller
           </a>
           <a
-            href="#"
+            href="/#Character"
             style={{
               color: "white",
               textDecoration: "none",
               transition: "color 0.3s ease, transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
+            onMouseEnter={(e) => (e.target.style.color = "#d15a3dff")}
             onMouseLeave={(e) => (e.target.style.color = "white")}
           >
-            Tommy miller
-          </a>
-          <a
-            href="#"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              transition: "color 0.3s ease, transform 0.3s ease",
-            }}
-            onMouseEnter={(e) => (e.target.style.color = "#FFD700")}
-            onMouseLeave={(e) => (e.target.style.color = "white")}
-          >
-            Infecters
+            Infected
           </a>
         </Flex>
       </Flex>
